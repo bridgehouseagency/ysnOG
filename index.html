@@ -3,339 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Youth Sports Network NB | Réseau Sportif pour les Jeunes NB</title>
-  <style>
-    /* ─── CSS Variables ─────────────────────────────────────────── */
-    :root {
-      --navy:  #1a2d5a;
-      --gold:  #b8952a;
-      --red:   #7a1b2a;
-      --white: #ffffff;
-      --light: #f4f6fa;
-      --gray:  #6b7280;
-      --border:#e2e8f0;
-    }
-
-    /* ─── Reset & Base ──────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a2e; background: var(--white); }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
-    ul { list-style: none; }
-
-    /* ─── Header ────────────────────────────────────────────────── */
-    header {
-      background: var(--navy);
-      position: sticky; top: 0; z-index: 1000;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
-    }
-    .header-inner {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center;
-      justify-content: space-between;
-      padding: 0 24px; height: 72px;
-    }
-    .logo-wrap { display: flex; align-items: center; gap: 14px; }
-    .logo-svg { width: 52px; height: 52px; flex-shrink: 0; }
-    .logo-text { line-height: 1.15; }
-    .logo-text .en-name { font-size: 13px; font-weight: 700; color: var(--white); letter-spacing:.5px; }
-    .logo-text .fr-name { font-size: 11px; color: var(--gold); letter-spacing:.3px; }
-
-    nav { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-    nav a {
-      color: rgba(255,255,255,0.85); font-size: 14px; font-weight: 500;
-      padding: 6px 12px; border-radius: 6px; transition: all .2s;
-    }
-    nav a:hover, nav a.active { color: var(--white); background: rgba(255,255,255,0.12); }
-
-    .lang-btn {
-      border: 2px solid var(--gold); color: var(--gold);
-      background: transparent; padding: 5px 14px;
-      border-radius: 20px; font-size: 13px; font-weight: 700;
-      cursor: pointer; transition: all .2s; margin-left: 10px;
-    }
-    .lang-btn:hover { background: var(--gold); color: var(--navy); }
-
-    /* Mobile hamburger */
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; }
-    .hamburger span { width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: .3s; }
-
-    /* ─── Hero ──────────────────────────────────────────────────── */
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #0d1f45 60%, #1a3a6b 100%);
-      color: var(--white); text-align: center;
-      padding: 100px 24px 80px;
-      position: relative; overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 30% 50%, rgba(184,149,42,0.15) 0%, transparent 60%),
-                  radial-gradient(ellipse at 70% 20%, rgba(122,27,42,0.1) 0%, transparent 50%);
-    }
-    .hero-content { position: relative; max-width: 800px; margin: 0 auto; }
-    .hero-badge {
-      display: inline-block; background: var(--gold); color: var(--navy);
-      font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
-      padding: 5px 16px; border-radius: 20px; margin-bottom: 20px;
-      text-transform: uppercase;
-    }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.15; margin-bottom: 20px; }
-    .hero h1 span { color: var(--gold); }
-    .hero p { font-size: 18px; opacity: .85; max-width: 620px; margin: 0 auto 36px; line-height: 1.7; }
-    .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--gold); color: var(--navy);
-      padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 15px;
-      transition: all .2s; border: 2px solid var(--gold);
-    }
-    .btn-primary:hover { background: #d4a832; border-color: #d4a832; transform: translateY(-2px); }
-    .btn-outline {
-      background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.5);
-      padding: 14px 32px; border-radius: 8px; font-weight: 600; font-size: 15px;
-      transition: all .2s;
-    }
-    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
-
-    /* ─── Section Titles ────────────────────────────────────────── */
-    .section { padding: 80px 24px; }
-    .section-alt { background: var(--light); }
-    .container { max-width: 1200px; margin: 0 auto; }
-    .section-title {
-      text-align: center; margin-bottom: 56px;
-    }
-    .section-title .tag {
-      display: inline-block; background: var(--gold); color: var(--navy);
-      font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
-      padding: 4px 14px; border-radius: 20px; margin-bottom: 12px;
-      text-transform: uppercase;
-    }
-    .section-title h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); color: var(--navy); font-weight: 800; }
-    .section-title p { color: var(--gray); margin-top: 12px; font-size: 16px; max-width: 620px; margin-left: auto; margin-right: auto; }
-    .divider { width: 56px; height: 4px; background: var(--gold); border-radius: 2px; margin: 14px auto 0; }
-
-    /* ─── Mission Cards ─────────────────────────────────────────── */
-    .cards-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
-    .card {
-      background: var(--white); border-radius: 14px;
-      padding: 36px 28px; box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-      border-top: 4px solid var(--gold); transition: transform .2s, box-shadow .2s;
-    }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(0,0,0,0.12); }
-    .card-icon { font-size: 40px; margin-bottom: 18px; }
-    .card h3 { font-size: 18px; color: var(--navy); font-weight: 700; margin-bottom: 10px; }
-    .card p { color: var(--gray); line-height: 1.7; font-size: 15px; }
-
-    /* ─── Programs ──────────────────────────────────────────────── */
-    .programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px; }
-    .prog-card {
-      border-radius: 16px; overflow: hidden;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.1); transition: transform .2s;
-    }
-    .prog-card:hover { transform: translateY(-4px); }
-    .prog-header { padding: 36px 32px 28px; color: var(--white); }
-    .prog-header.navy { background: var(--navy); }
-    .prog-header.gold  { background: linear-gradient(135deg, #8a6e1a 0%, var(--gold) 100%); }
-    .prog-header.red   { background: var(--red); }
-    .prog-icon { font-size: 42px; margin-bottom: 14px; }
-    .prog-header h3 { font-size: 21px; font-weight: 800; margin-bottom: 8px; }
-    .prog-header .sub { font-size: 13px; opacity: .8; }
-    .prog-body { padding: 28px 32px; background: var(--white); }
-    .prog-body p { color: var(--gray); line-height: 1.75; margin-bottom: 16px; font-size: 15px; }
-    .prog-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-    .tag-chip {
-      background: var(--light); color: var(--navy);
-      font-size: 12px; font-weight: 600; padding: 4px 12px; border-radius: 20px;
-    }
-    .prog-link {
-      display: inline-flex; align-items: center; gap: 8px;
-      color: var(--navy); font-weight: 700; font-size: 14px;
-      border-bottom: 2px solid var(--gold); padding-bottom: 2px; transition: gap .2s;
-    }
-    .prog-link:hover { gap: 12px; }
-
-    /* ─── Community / Newcomers ─────────────────────────────────── */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    @media (max-width: 768px) { .two-col { grid-template-columns: 1fr; } }
-    .text-block h2 { font-size: clamp(1.5rem,3vw,2.2rem); color: var(--navy); font-weight: 800; margin-bottom: 18px; }
-    .text-block p { color: var(--gray); line-height: 1.8; margin-bottom: 14px; }
-    .highlight-box {
-      background: var(--navy); color: var(--white);
-      border-radius: 14px; padding: 32px;
-    }
-    .highlight-box h3 { font-size: 20px; font-weight: 700; margin-bottom: 14px; color: var(--gold); }
-    .highlight-box ul li {
-      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1);
-      font-size: 15px; display: flex; align-items: center; gap: 10px;
-    }
-    .highlight-box ul li:last-child { border-bottom: none; }
-    .highlight-box ul li::before { content: '✦'; color: var(--gold); font-size: 10px; }
-
-    /* ─── Teams / Tryouts ───────────────────────────────────────── */
-    .teams-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 32px; margin-bottom: 56px; }
-    .team-card {
-      border-radius: 16px; overflow: hidden;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.1);
-    }
-    .team-header { padding: 40px 32px; color: var(--white); text-align: center; }
-    .team-header.soccer { background: linear-gradient(135deg, var(--navy), #2a4a8a); }
-    .team-header.basketball { background: linear-gradient(135deg, var(--red), #a0293a); }
-    .team-header .sport-icon { font-size: 56px; margin-bottom: 14px; }
-    .team-header h3 { font-size: 22px; font-weight: 800; }
-    .team-header .launch { background: var(--gold); color: var(--navy); font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-top: 10px; display: inline-block; }
-    .team-body { padding: 28px 32px; background: var(--white); }
-    .team-body p { color: var(--gray); line-height: 1.7; margin-bottom: 16px; }
-
-    /* ─── Tryout Form ────────────────────────────────────────────── */
-    .form-wrap {
-      background: var(--white); border-radius: 16px;
-      box-shadow: 0 6px 32px rgba(0,0,0,0.1); padding: 48px 40px;
-      max-width: 720px; margin: 0 auto;
-    }
-    .form-wrap h3 { color: var(--navy); font-size: 22px; font-weight: 800; margin-bottom: 28px; text-align: center; }
-    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    @media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
-    .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group.full { grid-column: 1 / -1; }
-    label { font-size: 13px; font-weight: 600; color: var(--navy); }
-    input, select, textarea {
-      border: 2px solid var(--border); border-radius: 8px;
-      padding: 10px 14px; font-size: 15px; font-family: inherit;
-      transition: border-color .2s; width: 100%;
-    }
-    input:focus, select:focus, textarea:focus {
-      outline: none; border-color: var(--gold);
-    }
-    textarea { resize: vertical; min-height: 90px; }
-    .form-submit {
-      background: var(--navy); color: var(--white);
-      border: none; padding: 14px 40px; border-radius: 8px;
-      font-size: 16px; font-weight: 700; cursor: pointer;
-      width: 100%; margin-top: 10px; transition: background .2s;
-    }
-    .form-submit:hover { background: #0d1f45; }
-    .success-msg {
-      display: none; background: #d1fae5; border: 1px solid #6ee7b7;
-      color: #065f46; padding: 14px 20px; border-radius: 8px;
-      font-weight: 600; text-align: center; margin-top: 16px;
-    }
-
-    /* ─── Partners / Sponsors ───────────────────────────────────── */
-    .sponsors-row {
-      display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 32px;
-    }
-    .sponsor-placeholder {
-      width: 150px; height: 70px; border: 2px dashed var(--border);
-      border-radius: 10px; display: flex; align-items: center; justify-content: center;
-      color: var(--gray); font-size: 12px; font-weight: 600; text-align: center; padding: 8px;
-      transition: border-color .2s;
-    }
-    .sponsor-placeholder:hover { border-color: var(--gold); }
-
-    /* ─── Stats Bar ─────────────────────────────────────────────── */
-    .stats-bar { background: var(--navy); padding: 48px 24px; }
-    .stats-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 32px; text-align: center; }
-    .stat-num { font-size: 42px; font-weight: 800; color: var(--gold); }
-    .stat-label { font-size: 14px; color: rgba(255,255,255,0.75); margin-top: 4px; }
-
-    /* ─── CTA Banner ────────────────────────────────────────────── */
-    .cta-banner {
-      background: linear-gradient(135deg, var(--gold), #8a6e1a);
-      padding: 64px 24px; text-align: center; color: var(--navy);
-    }
-    .cta-banner h2 { font-size: clamp(1.5rem,3vw,2.4rem); font-weight: 800; margin-bottom: 12px; }
-    .cta-banner p { font-size: 17px; margin-bottom: 28px; opacity: .85; }
-    .btn-dark {
-      background: var(--navy); color: var(--white);
-      padding: 14px 36px; border-radius: 8px; font-weight: 700; font-size: 15px;
-      transition: background .2s; display: inline-block;
-    }
-    .btn-dark:hover { background: #0d1f45; }
-
-    /* ─── Footer ────────────────────────────────────────────────── */
-    footer {
-      background: #0d1520; color: rgba(255,255,255,0.7);
-      padding: 56px 24px 28px;
-    }
-    .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-    @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
-    .footer-brand .brand-name { color: var(--white); font-size: 17px; font-weight: 800; margin-bottom: 6px; }
-    .footer-brand .brand-fr { color: var(--gold); font-size: 13px; margin-bottom: 14px; }
-    .footer-brand p { font-size: 14px; line-height: 1.7; }
-    .footer-col h4 { color: var(--white); font-size: 14px; font-weight: 700; margin-bottom: 16px; }
-    .footer-col ul li { margin-bottom: 10px; }
-    .footer-col ul li a { font-size: 14px; transition: color .2s; }
-    .footer-col ul li a:hover { color: var(--gold); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; text-align: center; font-size: 13px; max-width: 1200px; margin: 0 auto; }
-
-    /* ─── Page Sections (hidden by default) ─────────────────────── */
-    .page { display: none; }
-    .page.active { display: block; }
-    #page-home { display: block; }
-
-    /* ─── Responsive Nav ─────────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .hamburger { display: flex; }
-      nav {
-        position: fixed; top: 72px; left: 0; right: 0;
-        background: var(--navy); flex-direction: column;
-        padding: 20px; gap: 4px; transform: translateY(-120%);
-        transition: transform .3s; box-shadow: 0 8px 24px rgba(0,0,0,0.3);
-      }
-      nav.open { transform: translateY(0); }
-      nav a { width: 100%; padding: 12px 16px; }
-      .lang-btn { margin: 8px 0 0; }
-    }
-
-    /* ─── Accent colors for cards ───────────────────────────────── */
-    .card.red-top { border-top-color: var(--red); }
-    .card.navy-top { border-top-color: var(--navy); }
-
-    /* ─── Newcomers Section ─────────────────────────────────────── */
-    .newcomers-visual {
-      background: var(--navy); border-radius: 16px; padding: 48px 40px;
-      color: var(--white); text-align: center;
-    }
-    .newcomers-visual .flags { font-size: 40px; margin-bottom: 16px; letter-spacing: 8px; }
-    .newcomers-visual h3 { font-size: 24px; font-weight: 800; color: var(--gold); margin-bottom: 14px; }
-    .newcomers-visual p { opacity: .85; line-height: 1.7; }
-
-    /* ─── About page ────────────────────────────────────────────── */
-    .about-hero { background: linear-gradient(135deg, var(--navy), #0d1f45); color: var(--white); padding: 80px 24px; text-align: center; }
-    .about-hero h1 { font-size: clamp(2rem,4vw,3rem); font-weight: 800; margin-bottom: 16px; }
-    .about-hero p { font-size: 18px; opacity: .85; max-width: 640px; margin: 0 auto; }
-    .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-    .value-card { background: var(--white); border-radius: 12px; padding: 28px 20px; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.07); border-bottom: 3px solid var(--gold); }
-    .value-card .icon { font-size: 36px; margin-bottom: 12px; }
-    .value-card h4 { color: var(--navy); font-weight: 700; font-size: 15px; }
-
-    /* Toast */
-    .toast {
-      position: fixed; bottom: 32px; right: 32px; z-index: 9999;
-      background: var(--navy); color: var(--white); padding: 16px 24px;
-      border-radius: 10px; font-weight: 600; font-size: 15px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-      transform: translateY(100px); opacity: 0; transition: all .4s;
-    }
-    .toast.show { transform: translateY(0); opacity: 1; }
-  </style>
+  <title>Youth Sports Network NB</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     HEADER
-═══════════════════════════════════════════════════════════════ -->
+<!-- HEADER -->
 <header>
   <div class="header-inner">
-    <!-- Logo -->
-    <div class="logo-wrap" style="cursor:pointer" onclick="showPage('home')">
+    <a class="logo-wrap" href="index.html">
       <svg class="logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-        <!-- NB province shape (simplified) -->
         <polygon points="30,15 85,10 95,45 80,75 60,90 35,85 20,60 25,35" fill="#1a2d5a"/>
         <polygon points="20,60 35,85 25,80 15,70" fill="#7a1b2a"/>
-        <!-- Youth figure -->
         <ellipse cx="60" cy="35" rx="9" ry="9" fill="#b8952a"/>
         <line x1="60" y1="44" x2="60" y2="75" stroke="#b8952a" stroke-width="5" stroke-linecap="round"/>
         <line x1="60" y1="55" x2="45" y2="65" stroke="#b8952a" stroke-width="4" stroke-linecap="round"/>
@@ -347,671 +26,222 @@
         <div class="en-name" data-en="YOUTH SPORTS NETWORK NB" data-fr="RÉSEAU SPORTIF JEUNES NB">YOUTH SPORTS NETWORK NB</div>
         <div class="fr-name" data-en="Réseau Sportif pour les Jeunes NB" data-fr="Youth Sports Network NB">Réseau Sportif pour les Jeunes NB</div>
       </div>
-    </div>
-
-    <!-- Nav -->
-    <div class="hamburger" onclick="toggleNav()" id="hamburger">
-      <span></span><span></span><span></span>
-    </div>
+    </a>
+    <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
     <nav id="main-nav">
-      <a href="#" onclick="showPage('home')" data-en="Home" data-fr="Accueil">Home</a>
-      <a href="#" onclick="showPage('about')" data-en="About" data-fr="À propos">About</a>
-      <a href="#" onclick="showPage('programs')" data-en="Programs" data-fr="Programmes">Programs</a>
-      <a href="#" onclick="showPage('teams')" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a>
-      <a href="#" onclick="showPage('community')" data-en="Community" data-fr="Communauté">Community</a>
-      <a href="#" onclick="showPage('contact')" data-en="Contact" data-fr="Contact">Contact</a>
+      <a href="index.html" class="active" data-en="Home" data-fr="Accueil">Home</a>
+      <a href="about.html" data-en="About" data-fr="À propos">About</a>
+      <a href="programs.html" data-en="Programs" data-fr="Programmes">Programs</a>
+      <a href="teams.html" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a>
+      <a href="community.html" data-en="Community" data-fr="Communauté">Community</a>
+      <a href="contact.html" data-en="Contact" data-fr="Contact">Contact</a>
       <button class="lang-btn" onclick="toggleLang()" id="lang-toggle">FR</button>
     </nav>
   </div>
 </header>
 
-<!-- Toast notification -->
-<div class="toast" id="toast"></div>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge" data-en="New Brunswick, Canada" data-fr="Nouveau-Brunswick, Canada">New Brunswick, Canada</div>
+    <h1 data-en="Empowering Youth Through <span>Sport &amp; Community</span>" data-fr="Valoriser la Jeunesse par le <span>Sport et la Communauté</span>">
+      Empowering Youth Through <span>Sport &amp; Community</span>
+    </h1>
+    <p data-en="Building stronger futures for young people across New Brunswick — on the field, in the classroom, and in the heart of our communities." data-fr="Bâtir un avenir meilleur pour les jeunes du Nouveau-Brunswick — sur le terrain, en classe et au cœur de nos communautés.">
+      Building stronger futures for young people across New Brunswick — on the field, in the classroom, and in the heart of our communities.
+    </p>
+    <div class="hero-btns">
+      <a href="programs.html" class="btn-primary" data-en="Explore Programs" data-fr="Voir les Programmes">Explore Programs</a>
+      <a href="tryouts.html" class="btn-outline" data-en="Register for Tryouts" data-fr="S'inscrire aux Tryouts">Register for Tryouts</a>
+    </div>
+  </div>
+</section>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     PAGE: HOME
-═══════════════════════════════════════════════════════════════ -->
-<div class="page active" id="page-home">
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div><div class="stat-num">3</div><div class="stat-label" data-en="Active Programs" data-fr="Programmes Actifs">Active Programs</div></div>
+    <div><div class="stat-num">2</div><div class="stat-label" data-en="Youth Teams — Summer 2027" data-fr="Équipes Jeunes — Été 2027">Youth Teams — Summer 2027</div></div>
+    <div><div class="stat-num">2</div><div class="stat-label" data-en="Languages Served" data-fr="Langues Desservies">Languages Served</div></div>
+    <div><div class="stat-num">∞</div><div class="stat-label" data-en="Community Impact" data-fr="Impact Communautaire">Community Impact</div></div>
+  </div>
+</div>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-badge" data-en="New Brunswick, Canada" data-fr="Nouveau-Brunswick, Canada">New Brunswick, Canada</div>
-      <h1 data-en="Empowering Youth Through <span>Sport & Community</span>" data-fr="Valoriser la jeunesse par le <span>Sport et la Communauté</span>">
-        Empowering Youth Through <span>Sport & Community</span>
-      </h1>
-      <p data-en="Building stronger futures for young people across New Brunswick — on the field, in the classroom, and in the heart of our communities." data-fr="Bâtir un avenir meilleur pour les jeunes du Nouveau-Brunswick — sur le terrain, en classe et au cœur de nos communautés.">
-        Building stronger futures for young people across New Brunswick — on the field, in the classroom, and in the heart of our communities.
+<!-- MISSION -->
+<section class="section">
+  <div class="container">
+    <div class="section-title">
+      <span class="tag" data-en="Our Mission" data-fr="Notre Mission">Our Mission</span>
+      <h2 data-en="What We Stand For" data-fr="Ce en Quoi Nous Croyons">What We Stand For</h2>
+      <div class="divider"></div>
+      <p data-en="We are committed to making a difference — not only on sports courts, but also in the local community that welcomes each of us." data-fr="Nous nous engageons à faire une différence — non seulement sur les terrains de sport, mais aussi dans la communauté locale qui nous accueille.">
+        We are committed to making a difference — not only on sports courts, but also in the local community that welcomes each of us.
       </p>
-      <div class="hero-btns">
-        <a href="#" class="btn-primary" onclick="showPage('programs')" data-en="Explore Programs" data-fr="Voir les Programmes">Explore Programs</a>
-        <a href="#" class="btn-outline" onclick="showPage('teams')" data-en="Register for Tryouts" data-fr="S'inscrire aux Tryouts">Register for Tryouts</a>
-      </div>
     </div>
-  </section>
-
-  <!-- Stats -->
-  <div class="stats-bar">
-    <div class="stats-inner">
-      <div><div class="stat-num">3</div><div class="stat-label" data-en="Active Programs" data-fr="Programmes Actifs">Active Programs</div></div>
-      <div><div class="stat-num">2</div><div class="stat-label" data-en="Youth Teams Launching 2027" data-fr="Équipes Lancées en 2027">Youth Teams Launching 2027</div></div>
-      <div><div class="stat-num">2</div><div class="stat-label" data-en="Languages Served" data-fr="Langues Desservies">Languages Served</div></div>
-      <div><div class="stat-num">∞</div><div class="stat-label" data-en="Community Impact" data-fr="Impact Communautaire">Community Impact</div></div>
+    <div class="cards-3">
+      <div class="card">
+        <div class="card-icon">🏃</div>
+        <h3 data-en="Active Youth" data-fr="Jeunes Actifs">Active Youth</h3>
+        <p data-en="Providing free and accessible sports, fitness, and recreational programs for children and youth across New Brunswick." data-fr="Offrir des programmes sportifs, de conditionnement physique et de loisirs gratuits et accessibles aux enfants et aux jeunes du Nouveau-Brunswick.">Providing free and accessible sports, fitness, and recreational programs for children and youth across New Brunswick.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3 data-en="Inclusive Community" data-fr="Communauté Inclusive">Inclusive Community</h3>
+        <p data-en="Building bridges between newcomers, immigrants, and local communities through the universal language of sport and play." data-fr="Créer des ponts entre les nouveaux arrivants, les immigrants et les communautés locales grâce au langage universel du sport et du jeu.">Building bridges between newcomers, immigrants, and local communities through the universal language of sport and play.</p>
+      </div>
+      <div class="card red-top">
+        <div class="card-icon">🎓</div>
+        <h3 data-en="Youth Development" data-fr="Développement des Jeunes">Youth Development</h3>
+        <p data-en="Preparing the next generation with mindset, leadership, and life skills through academic partnerships and mentorship programs." data-fr="Préparer la prochaine génération avec un état d'esprit, du leadership et des compétences de vie grâce à des partenariats académiques.">Preparing the next generation with mindset, leadership, and life skills through academic partnerships and mentorship programs.</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- Mission -->
-  <section class="section">
-    <div class="container">
-      <div class="section-title">
-        <span class="tag" data-en="Our Mission" data-fr="Notre Mission">Our Mission</span>
-        <h2 data-en="What We Stand For" data-fr="Ce en quoi nous croyons">What We Stand For</h2>
-        <div class="divider"></div>
-        <p data-en="We are committed to making a difference — not only on sports courts, but also in the local community that welcomes each of us." data-fr="Nous nous engageons à faire une différence — non seulement sur les terrains de sport, mais aussi dans la communauté locale qui nous accueille.">
-          We are committed to making a difference — not only on sports courts, but also in the local community that welcomes each of us.
-        </p>
+<!-- PROGRAMS PREVIEW -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-title">
+      <span class="tag" data-en="Our Programs" data-fr="Nos Programmes">Our Programs</span>
+      <h2 data-en="Everything We Offer" data-fr="Tout Ce Que Nous Offrons">Everything We Offer</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="programs-grid">
+      <div class="prog-card">
+        <div class="prog-header navy">
+          <div class="prog-icon">⚽🏀</div>
+          <h3 data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</h3>
+          <div class="sub" data-en="Launching Summer 2027" data-fr="Lancement Été 2027">Launching Summer 2027</div>
+        </div>
+        <div class="prog-body">
+          <p data-en="Harambe Soccer Team and Harambe Basketball Team — two competitive youth teams launching Summer 2027. Open tryouts for passionate young athletes." data-fr="Équipe de Soccer Harambe et Équipe de Basketball Harambe — deux équipes jeunesse lancées à l'été 2027. Tryouts ouverts aux jeunes athlètes passionnés.">Harambe Soccer Team and Harambe Basketball Team — two competitive youth teams launching Summer 2027. Open tryouts for passionate young athletes.</p>
+          <div class="prog-tags">
+            <span class="tag-chip">⚽ Soccer</span>
+            <span class="tag-chip">🏀 Basketball</span>
+            <span class="tag-chip" data-en="Ages 10–17" data-fr="Âges 10–17">Ages 10–17</span>
+          </div>
+          <a href="tryouts.html" class="prog-link" data-en="Register for Tryouts →" data-fr="S'inscrire aux Tryouts →">Register for Tryouts →</a>
+        </div>
       </div>
-      <div class="cards-3">
-        <div class="card">
-          <div class="card-icon">🏃</div>
-          <h3 data-en="Active Youth" data-fr="Jeunes Actifs">Active Youth</h3>
-          <p data-en="Providing free and accessible sports, fitness, and recreational programs for children and youth across New Brunswick." data-fr="Offrir des programmes sportifs, de conditionnement physique et de loisirs gratuits et accessibles aux enfants et aux jeunes du Nouveau-Brunswick.">
-            Providing free and accessible sports, fitness, and recreational programs for children and youth across New Brunswick.
-          </p>
+      <div class="prog-card">
+        <div class="prog-header gold">
+          <div class="prog-icon">🌳</div>
+          <h3 data-en="Kids in Motion" data-fr="Enfants en Mouvement">Kids in Motion</h3>
+          <div class="sub" data-en="Free Community Activities" data-fr="Activités Communautaires Gratuites">Free Community Activities</div>
         </div>
-        <div class="card">
-          <div class="card-icon">🤝</div>
-          <h3 data-en="Inclusive Community" data-fr="Communauté Inclusive">Inclusive Community</h3>
-          <p data-en="Building bridges between newcomers, immigrants, and local communities through the universal language of sport and play." data-fr="Créer des ponts entre les nouveaux arrivants, les immigrants et les communautés locales grâce au langage universel du sport et du jeu.">
-            Building bridges between newcomers, immigrants, and local communities through the universal language of sport and play.
-          </p>
+        <div class="prog-body">
+          <p data-en="Free activities for youth at parks and playgrounds — organized sports, games, fitness demos, guided walks, board games, water games, and so much more." data-fr="Activités gratuites pour les jeunes dans les parcs et aires de jeux — sports organisés, jeux, démonstrations de fitness, marches guidées, jeux de société, jeux aquatiques et bien plus.">Free activities for youth at parks and playgrounds — organized sports, games, fitness demos, guided walks, board games, water games, and so much more.</p>
+          <div class="prog-tags">
+            <span class="tag-chip" data-en="Free" data-fr="Gratuit">Free</span>
+            <span class="tag-chip" data-en="Outdoor" data-fr="Plein Air">Outdoor</span>
+            <span class="tag-chip" data-en="All Ages" data-fr="Tous Âges">All Ages</span>
+          </div>
+          <a href="programs.html" class="prog-link" data-en="Learn More →" data-fr="En Savoir Plus →">Learn More →</a>
         </div>
-        <div class="card red-top">
-          <div class="card-icon">🎓</div>
-          <h3 data-en="Youth Development" data-fr="Développement des Jeunes">Youth Development</h3>
-          <p data-en="Preparing the next generation with mindset, leadership, and life skills through academic partnerships and mentorship programs." data-fr="Préparer la prochaine génération avec un état d'esprit, du leadership et des compétences de vie grâce à des partenariats académiques.">
-            Preparing the next generation with mindset, leadership, and life skills through academic partnerships and mentorship programs.
-          </p>
+      </div>
+      <div class="prog-card">
+        <div class="prog-header red">
+          <div class="prog-icon">💡</div>
+          <h3 data-en="Beacon Youth Program" data-fr="Programme Jeunesse Beacon">Beacon Youth Program</h3>
+          <div class="sub" data-en="School-Based After School" data-fr="Programme Parascolaire">School-Based After School</div>
+        </div>
+        <div class="prog-body">
+          <p data-en="A mindset and development-oriented after-school program with college and university partnerships — preparing youth for the next generation." data-fr="Programme de développement parascolaire en partenariat avec des collèges et universités — préparant les jeunes à la prochaine génération.">A mindset and development-oriented after-school program with college and university partnerships — preparing youth for the next generation.</p>
+          <div class="prog-tags">
+            <span class="tag-chip" data-en="After School" data-fr="Parascolaire">After School</span>
+            <span class="tag-chip" data-en="Weekends" data-fr="Week-ends">Weekends</span>
+            <span class="tag-chip" data-en="Holidays" data-fr="Jours Fériés">Holidays</span>
+          </div>
+          <a href="programs.html" class="prog-link" data-en="Learn More →" data-fr="En Savoir Plus →">Learn More →</a>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- Programs Preview -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-title">
-        <span class="tag" data-en="Our Programs" data-fr="Nos Programmes">Our Programs</span>
-        <h2 data-en="Everything We Offer" data-fr="Tout ce que nous offrons">Everything We Offer</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="programs-grid">
-        <!-- Youth Teams -->
-        <div class="prog-card">
-          <div class="prog-header navy">
-            <div class="prog-icon">⚽🏀</div>
-            <h3 data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</h3>
-            <div class="sub" data-en="Launching Summer 2027" data-fr="Lancement Été 2027">Launching Summer 2027</div>
-          </div>
-          <div class="prog-body">
-            <p data-en="Harambe Soccer Team and Harambe Basketball Team — two competitive youth teams launching in Summer 2027. Open tryouts for passionate young athletes." data-fr="Équipe de Soccer Harambe et Équipe de Basketball Harambe — deux équipes de jeunes lancées à l'été 2027. Tryouts ouverts aux jeunes athlètes passionnés.">
-              Harambe Soccer Team and Harambe Basketball Team — two competitive youth teams launching in Summer 2027. Open tryouts for passionate young athletes.
-            </p>
-            <div class="prog-tags">
-              <span class="tag-chip" data-en="Soccer" data-fr="Soccer">Soccer</span>
-              <span class="tag-chip" data-en="Basketball" data-fr="Basketball">Basketball</span>
-              <span class="tag-chip" data-en="Ages 10-17" data-fr="Âges 10-17">Ages 10–17</span>
-            </div>
-            <a href="#" class="prog-link" onclick="showPage('teams')" data-en="Register for Tryouts →" data-fr="S'inscrire aux Tryouts →">Register for Tryouts →</a>
-          </div>
-        </div>
-
-        <!-- Kids in Motion -->
-        <div class="prog-card">
-          <div class="prog-header gold">
-            <div class="prog-icon">🌳</div>
-            <h3 data-en="Kids in Motion" data-fr="Enfants en Mouvement">Kids in Motion</h3>
-            <div class="sub" data-en="Free Community Activities" data-fr="Activités Communautaires Gratuites">Free Community Activities</div>
-          </div>
-          <div class="prog-body">
-            <p data-en="Free activities for youth at parks and playgrounds — organized sports, games, fitness demos, guided walks, board games, water games, and so much more." data-fr="Activités gratuites pour les jeunes dans les parcs et aires de jeux — sports organisés, jeux, démonstrations de fitness, marches guidées, jeux de société, jeux aquatiques et bien plus.">
-              Free activities for youth at parks and playgrounds — organized sports, games, fitness demos, guided walks, board games, water games, and so much more.
-            </p>
-            <div class="prog-tags">
-              <span class="tag-chip" data-en="Free" data-fr="Gratuit">Free</span>
-              <span class="tag-chip" data-en="Outdoor" data-fr="Plein Air">Outdoor</span>
-              <span class="tag-chip" data-en="All Ages" data-fr="Tous Âges">All Ages</span>
-            </div>
-            <a href="#" class="prog-link" onclick="showPage('programs')" data-en="Learn More →" data-fr="En Savoir Plus →">Learn More →</a>
-          </div>
-        </div>
-
-        <!-- Beacon Youth -->
-        <div class="prog-card">
-          <div class="prog-header red">
-            <div class="prog-icon">💡</div>
-            <h3 data-en="Beacon Youth Program" data-fr="Programme Jeunesse Beacon">Beacon Youth Program</h3>
-            <div class="sub" data-en="School-Based After School" data-fr="Programme Parascolaire">School-Based After School</div>
-          </div>
-          <div class="prog-body">
-            <p data-en="A mindset and development-oriented after-school program with college and university partnerships — preparing youth for the next generation through mentorship, skills, and leadership." data-fr="Programme de développement parascolaire en partenariat avec des collèges et universités — préparant les jeunes à la prochaine génération grâce au mentorat, aux compétences et au leadership.">
-              A mindset and development-oriented after-school program with college and university partnerships — preparing youth for the next generation through mentorship, skills, and leadership.
-            </p>
-            <div class="prog-tags">
-              <span class="tag-chip" data-en="After School" data-fr="Parascolaire">After School</span>
-              <span class="tag-chip" data-en="Weekends" data-fr="Week-ends">Weekends</span>
-              <span class="tag-chip" data-en="Holidays" data-fr="Jours Fériés">Holidays</span>
-            </div>
-            <a href="#" class="prog-link" onclick="showPage('programs')" data-en="Learn More →" data-fr="En Savoir Plus →">Learn More →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Newcomers -->
-  <section class="section">
-    <div class="container">
-      <div class="two-col">
-        <div class="text-block">
-          <span class="tag" style="background:var(--gold);color:var(--navy);font-size:11px;font-weight:700;letter-spacing:1.5px;padding:4px 14px;border-radius:20px;display:inline-block;margin-bottom:16px;" data-en="Newcomers & Immigrants" data-fr="Nouveaux Arrivants & Immigrants">Newcomers & Immigrants</span>
-          <h2 data-en="Sport Unites Us All" data-fr="Le Sport Nous Unit Tous">Sport Unites Us All</h2>
-          <p data-en="We focus on welcoming newcomers and immigrants into our programs to help them better integrate into the local community alongside their neighbours." data-fr="Nous mettons l'accent sur l'accueil des nouveaux arrivants et des immigrants dans nos programmes pour les aider à mieux s'intégrer dans la communauté locale aux côtés de leurs voisins.">
-            We focus on welcoming newcomers and immigrants into our programs to help them better integrate into the local community alongside their neighbours.
-          </p>
-          <p data-en="Through sport and shared experiences, language and cultural barriers fade. Every child deserves to play, belong, and thrive — no matter where they come from." data-fr="Grâce au sport et aux expériences partagées, les barrières linguistiques et culturelles s'estompent. Chaque enfant mérite de jouer, d'appartenir et de s'épanouir — peu importe d'où il vient.">
-            Through sport and shared experiences, language and cultural barriers fade. Every child deserves to play, belong, and thrive — no matter where they come from.
-          </p>
-        </div>
-        <div class="newcomers-visual">
-          <div class="flags">🌍🌎🌏</div>
-          <h3 data-en="All Are Welcome Here" data-fr="Tous Sont les Bienvenus Ici">All Are Welcome Here</h3>
-          <p data-en="From every corner of the world, every culture and background is celebrated in our programs. We are stronger together." data-fr="De chaque coin du monde, chaque culture et chaque origine est célébrée dans nos programmes. Nous sommes plus forts ensemble.">
-            From every corner of the world, every culture and background is celebrated in our programs. We are stronger together.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Partners & Sponsors -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-title">
-        <span class="tag" data-en="Partners & Sponsors" data-fr="Partenaires & Commanditaires">Partners & Sponsors</span>
-        <h2 data-en="Together We Make It Possible" data-fr="Ensemble Nous le Rendons Possible">Together We Make It Possible</h2>
-        <div class="divider"></div>
-        <p data-en="We are grateful for the support of our community partners and sponsors who help us deliver impactful programs for youth across New Brunswick." data-fr="Nous sommes reconnaissants du soutien de nos partenaires communautaires et commanditaires qui nous aident à offrir des programmes percutants pour les jeunes du Nouveau-Brunswick.">
-          We are grateful for the support of our community partners and sponsors who help us deliver impactful programs for youth across New Brunswick.
-        </p>
-      </div>
-      <div class="sponsors-row" style="margin-bottom:40px;">
-        <div class="sponsor-placeholder" data-en="Your Logo Here" data-fr="Votre Logo Ici">Your Logo Here</div>
-        <div class="sponsor-placeholder" data-en="Your Logo Here" data-fr="Votre Logo Ici">Your Logo Here</div>
-        <div class="sponsor-placeholder" data-en="Your Logo Here" data-fr="Votre Logo Ici">Your Logo Here</div>
-        <div class="sponsor-placeholder" data-en="Your Logo Here" data-fr="Votre Logo Ici">Your Logo Here</div>
-        <div class="sponsor-placeholder" data-en="Your Logo Here" data-fr="Votre Logo Ici">Your Logo Here</div>
-        <div class="sponsor-placeholder" data-en="Your Logo Here" data-fr="Votre Logo Ici">Your Logo Here</div>
-      </div>
-      <div style="text-align:center;">
-        <a href="#" class="btn-primary" onclick="showPage('contact')" style="display:inline-block;" data-en="Become a Partner" data-fr="Devenir Partenaire">Become a Partner</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-banner">
-    <div class="container">
-      <h2 data-en="Ready to Make a Difference?" data-fr="Prêt à Faire une Différence?">Ready to Make a Difference?</h2>
-      <p data-en="Join us as a volunteer, sponsor, or participant. Every contribution shapes a better future for our youth." data-fr="Rejoignez-nous en tant que bénévole, commanditaire ou participant. Chaque contribution façonne un avenir meilleur pour nos jeunes.">
-        Join us as a volunteer, sponsor, or participant. Every contribution shapes a better future for our youth.
-      </p>
-      <a href="#" class="btn-dark" onclick="showPage('contact')" data-en="Get Involved Today" data-fr="Impliquez-vous Aujourd'hui">Get Involved Today</a>
-    </div>
-  </section>
-
-</div><!-- /page-home -->
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     PAGE: ABOUT
-═══════════════════════════════════════════════════════════════ -->
-<div class="page" id="page-about">
-
-  <div class="about-hero">
-    <h1 data-en="About Youth Sports Network NB" data-fr="À propos du Réseau Sportif Jeunes NB">About Youth Sports Network NB</h1>
-    <p data-en="A non-profit organization dedicated to the health, development, and belonging of every young person in New Brunswick." data-fr="Un organisme sans but lucratif dédié à la santé, au développement et à l'appartenance de chaque jeune au Nouveau-Brunswick.">
-      A non-profit organization dedicated to the health, development, and belonging of every young person in New Brunswick.
-    </p>
   </div>
+</section>
 
-  <section class="section">
-    <div class="container">
-      <div class="two-col" style="margin-bottom:64px;">
-        <div class="text-block">
-          <h2 data-en="Who We Are" data-fr="Qui Nous Sommes">Who We Are</h2>
-          <p data-en="Youth Sports Network NB (YSN-NB) is a community-driven non-profit organization based in New Brunswick, Canada. We believe every young person — regardless of background, ability, or economic situation — deserves access to sport, community, and opportunity." data-fr="Le Réseau Sportif pour les Jeunes NB (YSN-NB) est un organisme sans but lucratif axé sur la communauté, établi au Nouveau-Brunswick, Canada. Nous croyons que chaque jeune — quelle que soit son origine, ses capacités ou sa situation économique — mérite d'avoir accès au sport, à la communauté et aux opportunités.">
-            Youth Sports Network NB (YSN-NB) is a community-driven non-profit organization based in New Brunswick, Canada. We believe every young person — regardless of background, ability, or economic situation — deserves access to sport, community, and opportunity.
-          </p>
-          <p data-en="We are committed to making a difference not only on sports courts, but also in the local communities that welcome each of us. Our programs bridge sport, education, and social inclusion to create lasting positive change." data-fr="Nous nous engageons à faire une différence non seulement sur les terrains de sport, mais aussi dans les communautés locales qui nous accueillent. Nos programmes unissent sport, éducation et inclusion sociale pour créer un changement positif durable.">
-            We are committed to making a difference not only on sports courts, but also in the local communities that welcome each of us. Our programs bridge sport, education, and social inclusion to create lasting positive change.
-          </p>
-          <p data-en="We especially focus on welcoming newcomers and immigrants, helping them integrate into the community through the universal language of sport and play." data-fr="Nous nous concentrons particulièrement sur l'accueil des nouveaux arrivants et des immigrants, en les aidant à s'intégrer dans la communauté grâce au langage universel du sport et du jeu.">
-            We especially focus on welcoming newcomers and immigrants, helping them integrate into the community through the universal language of sport and play.
-          </p>
-        </div>
-        <div class="highlight-box">
-          <h3 data-en="Our Core Objectives" data-fr="Nos Objectifs Principaux">Our Core Objectives</h3>
-          <ul>
-            <li data-en="Provide accessible sport programs for all youth" data-fr="Offrir des programmes sportifs accessibles à tous les jeunes">Provide accessible sport programs for all youth</li>
-            <li data-en="Foster inclusion for newcomers and immigrants" data-fr="Favoriser l'inclusion des nouveaux arrivants et immigrants">Foster inclusion for newcomers and immigrants</li>
-            <li data-en="Develop mindset, leadership and life skills" data-fr="Développer la mentalité, le leadership et les compétences de vie">Develop mindset, leadership and life skills</li>
-            <li data-en="Partner with schools, colleges & universities" data-fr="Partenariat avec écoles, collèges et universités">Partner with schools, colleges & universities</li>
-            <li data-en="Create free community activities at parks" data-fr="Créer des activités gratuites dans les parcs">Create free community activities at parks</li>
-            <li data-en="Launch competitive youth sports teams" data-fr="Lancer des équipes sportives jeunesse compétitives">Launch competitive youth sports teams</li>
-            <li data-en="Build a healthier, more connected NB" data-fr="Bâtir un NB plus sain et connecté">Build a healthier, more connected NB</li>
-          </ul>
-        </div>
+<!-- NEWCOMERS -->
+<section class="section">
+  <div class="container">
+    <div class="two-col">
+      <div class="text-block">
+        <span class="tag-inline" data-en="Newcomers &amp; Immigrants" data-fr="Nouveaux Arrivants &amp; Immigrants">Newcomers &amp; Immigrants</span>
+        <h2 data-en="Sport Unites Us All" data-fr="Le Sport Nous Unit Tous">Sport Unites Us All</h2>
+        <p data-en="We focus on welcoming newcomers and immigrants into our programs to help them better integrate into the local community alongside their neighbours." data-fr="Nous mettons l'accent sur l'accueil des nouveaux arrivants et des immigrants dans nos programmes pour les aider à mieux s'intégrer dans la communauté locale.">We focus on welcoming newcomers and immigrants into our programs to help them better integrate into the local community alongside their neighbours.</p>
+        <p data-en="Through sport and shared experiences, language and cultural barriers fade. Every child deserves to play, belong, and thrive — no matter where they come from." data-fr="Grâce au sport et aux expériences partagées, les barrières linguistiques et culturelles s'estompent. Chaque enfant mérite de jouer, d'appartenir et de s'épanouir — peu importe d'où il vient.">Through sport and shared experiences, language and cultural barriers fade. Every child deserves to play, belong, and thrive — no matter where they come from.</p>
+        <a href="community.html" class="btn-navy" style="margin-top:8px;" data-en="Learn About Inclusion" data-fr="En Savoir Plus sur l'Inclusion">Learn About Inclusion</a>
       </div>
-
-      <!-- Values -->
-      <div class="section-title" style="margin-bottom:36px;">
-        <span class="tag" data-en="Our Values" data-fr="Nos Valeurs">Our Values</span>
-        <h2 data-en="What Drives Us" data-fr="Ce Qui Nous Anime">What Drives Us</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="values-grid">
-        <div class="value-card"><div class="icon">🏅</div><h4 data-en="Excellence" data-fr="Excellence">Excellence</h4></div>
-        <div class="value-card"><div class="icon">🤝</div><h4 data-en="Inclusion" data-fr="Inclusion">Inclusion</h4></div>
-        <div class="value-card"><div class="icon">💪</div><h4 data-en="Empowerment" data-fr="Autonomisation">Empowerment</h4></div>
-        <div class="value-card"><div class="icon">🌱</div><h4 data-en="Growth" data-fr="Croissance">Growth</h4></div>
-        <div class="value-card"><div class="icon">❤️</div><h4 data-en="Compassion" data-fr="Compassion">Compassion</h4></div>
-        <div class="value-card"><div class="icon">🔗</div><h4 data-en="Community" data-fr="Communauté">Community</h4></div>
+      <div class="newcomers-visual">
+        <div class="flags">🌍🌎🌏</div>
+        <h3 data-en="All Are Welcome Here" data-fr="Tous Sont les Bienvenus Ici">All Are Welcome Here</h3>
+        <p data-en="From every corner of the world, every culture and background is celebrated in our programs. We are stronger together." data-fr="De chaque coin du monde, chaque culture et chaque origine est célébrée dans nos programmes. Nous sommes plus forts ensemble.">From every corner of the world, every culture and background is celebrated in our programs. We are stronger together.</p>
       </div>
     </div>
-  </section>
-
-</div><!-- /page-about -->
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     PAGE: PROGRAMS
-═══════════════════════════════════════════════════════════════ -->
-<div class="page" id="page-programs">
-
-  <div class="about-hero">
-    <h1 data-en="Our Programs" data-fr="Nos Programmes">Our Programs</h1>
-    <p data-en="Three pillars of impact — sport, community, and development — working together to transform young lives across New Brunswick." data-fr="Trois piliers d'impact — sport, communauté et développement — travaillant ensemble pour transformer la vie des jeunes au Nouveau-Brunswick.">
-      Three pillars of impact — sport, community, and development — working together to transform young lives across New Brunswick.
-    </p>
   </div>
+</section>
 
-  <!-- Kids in Motion -->
-  <section class="section">
-    <div class="container">
-      <div class="two-col" style="margin-bottom:72px;">
-        <div style="background:linear-gradient(135deg,#8a6e1a,var(--gold));border-radius:16px;padding:48px 40px;color:var(--white);text-align:center;">
-          <div style="font-size:64px;margin-bottom:16px;">🌳</div>
-          <h2 style="font-size:28px;font-weight:800;margin-bottom:12px;" data-en="Kids in Motion" data-fr="Enfants en Mouvement">Kids in Motion</h2>
-          <p style="opacity:.9;font-size:16px;line-height:1.7;" data-en="Free activities for youth at parks & playgrounds" data-fr="Activités gratuites pour les jeunes dans les parcs et aires de jeux">Free activities for youth at parks & playgrounds</p>
-        </div>
-        <div class="text-block">
-          <h2 data-en="Outdoor Fun — At No Cost" data-fr="Plaisir en Plein Air — Sans Frais">Outdoor Fun — At No Cost</h2>
-          <p data-en="Kids in Motion is our flagship free community program, bringing organized activities directly to parks and playgrounds across New Brunswick. No registration fees. No barriers. Just fun, fitness, and friendship." data-fr="Enfants en Mouvement est notre programme communautaire gratuit phare, apportant des activités organisées directement dans les parcs et aires de jeux du Nouveau-Brunswick. Pas de frais d'inscription. Pas de barrières. Juste du plaisir, du fitness et de l'amitié.">
-            Kids in Motion is our flagship free community program, bringing organized activities directly to parks and playgrounds across New Brunswick. No registration fees. No barriers. Just fun, fitness, and friendship.
-          </p>
-          <p data-en="Activities include organized sports, competitive games, fitness demonstrations, guided nature walks, board games, water games, and seasonal activities — something for everyone." data-fr="Les activités comprennent des sports organisés, des jeux compétitifs, des démonstrations de fitness, des promenades guidées dans la nature, des jeux de société, des jeux aquatiques et des activités saisonnières — quelque chose pour tout le monde.">
-            Activities include organized sports, competitive games, fitness demonstrations, guided nature walks, board games, water games, and seasonal activities — something for everyone.
-          </p>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;">
-            <div style="background:var(--light);border-radius:10px;padding:14px;text-align:center;font-size:13px;font-weight:600;color:var(--navy);">⚽ <span data-en="Organized Sports" data-fr="Sports Organisés">Organized Sports</span></div>
-            <div style="background:var(--light);border-radius:10px;padding:14px;text-align:center;font-size:13px;font-weight:600;color:var(--navy);">🎲 <span data-en="Board Games" data-fr="Jeux de Société">Board Games</span></div>
-            <div style="background:var(--light);border-radius:10px;padding:14px;text-align:center;font-size:13px;font-weight:600;color:var(--navy);">💪 <span data-en="Fitness Demos" data-fr="Démos Fitness">Fitness Demos</span></div>
-            <div style="background:var(--light);border-radius:10px;padding:14px;text-align:center;font-size:13px;font-weight:600;color:var(--navy);">🚶 <span data-en="Guided Walks" data-fr="Marches Guidées">Guided Walks</span></div>
-            <div style="background:var(--light);border-radius:10px;padding:14px;text-align:center;font-size:13px;font-weight:600;color:var(--navy);">💦 <span data-en="Water Games" data-fr="Jeux Aquatiques">Water Games</span></div>
-            <div style="background:var(--light);border-radius:10px;padding:14px;text-align:center;font-size:13px;font-weight:600;color:var(--navy);">🎮 <span data-en="More & More!" data-fr="Et Plus Encore!">More & More!</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Beacon Youth -->
-      <div style="height:1px;background:var(--border);margin-bottom:72px;"></div>
-      <div class="two-col">
-        <div class="text-block">
-          <h2 data-en="Beacon Youth Program" data-fr="Programme Jeunesse Beacon">Beacon Youth Program</h2>
-          <p data-en="Beacon is our mindset and development-oriented school-based after-school program. In partnership with colleges and universities, we prepare youth for the next generation — building the skills, confidence, and resilience they need to succeed." data-fr="Beacon est notre programme parascolaire axé sur le développement et la mentalité. En partenariat avec des collèges et universités, nous préparons les jeunes pour la prochaine génération — en développant les compétences, la confiance et la résilience dont ils ont besoin pour réussir.">
-            Beacon is our mindset and development-oriented school-based after-school program. In partnership with colleges and universities, we prepare youth for the next generation — building the skills, confidence, and resilience they need to succeed.
-          </p>
-          <p data-en="Sessions take place evenings, weekends, and holidays — designed to fit around school schedules and reach the youth who need it most." data-fr="Les séances ont lieu en soirée, les week-ends et les jours fériés — conçues pour s'adapter aux horaires scolaires et atteindre les jeunes qui en ont le plus besoin.">
-            Sessions take place evenings, weekends, and holidays — designed to fit around school schedules and reach the youth who need it most.
-          </p>
-          <div class="highlight-box" style="margin-top:24px;">
-            <h3 data-en="Program Focus Areas" data-fr="Domaines de Focus du Programme">Program Focus Areas</h3>
-            <ul>
-              <li data-en="Mindset & Mental Resilience" data-fr="Mentalité et Résilience Mentale">Mindset & Mental Resilience</li>
-              <li data-en="Leadership & Communication" data-fr="Leadership et Communication">Leadership & Communication</li>
-              <li data-en="Academic Support & Mentorship" data-fr="Soutien Académique et Mentorat">Academic Support & Mentorship</li>
-              <li data-en="Career Exploration & Life Skills" data-fr="Exploration de Carrière et Compétences de Vie">Career Exploration & Life Skills</li>
-              <li data-en="College & University Partnerships" data-fr="Partenariats Collégiaux et Universitaires">College & University Partnerships</li>
-            </ul>
-          </div>
-        </div>
-        <div style="background:var(--red);border-radius:16px;padding:48px 40px;color:var(--white);text-align:center;">
-          <div style="font-size:64px;margin-bottom:16px;">💡</div>
-          <h2 style="font-size:28px;font-weight:800;margin-bottom:12px;color:var(--gold);" data-en="Beacon Youth" data-fr="Jeunesse Beacon">Beacon Youth</h2>
-          <p style="opacity:.9;font-size:16px;line-height:1.7;margin-bottom:24px;" data-en="School-based community after-school program" data-fr="Programme communautaire parascolaire">School-based community after-school program</p>
-          <div style="display:flex;flex-direction:column;gap:10px;text-align:left;">
-            <div style="background:rgba(255,255,255,0.1);padding:12px 16px;border-radius:8px;font-size:14px;">🌙 <span data-en="Evening Sessions" data-fr="Séances en Soirée">Evening Sessions</span></div>
-            <div style="background:rgba(255,255,255,0.1);padding:12px 16px;border-radius:8px;font-size:14px;">📅 <span data-en="Weekend Programs" data-fr="Programmes du Week-end">Weekend Programs</span></div>
-            <div style="background:rgba(255,255,255,0.1);padding:12px 16px;border-radius:8px;font-size:14px;">🎓 <span data-en="Holiday Activities" data-fr="Activités des Jours Fériés">Holiday Activities</span></div>
-            <div style="background:rgba(255,255,255,0.1);padding:12px 16px;border-radius:8px;font-size:14px;">🏫 <span data-en="School Partnerships" data-fr="Partenariats Scolaires">School Partnerships</span></div>
-          </div>
-        </div>
-      </div>
+<!-- PARTNERS & SPONSORS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-title">
+      <span class="tag" data-en="Partners &amp; Sponsors" data-fr="Partenaires &amp; Commanditaires">Partners &amp; Sponsors</span>
+      <h2 data-en="Together We Make It Possible" data-fr="Ensemble Nous le Rendons Possible">Together We Make It Possible</h2>
+      <div class="divider"></div>
+      <p data-en="We are grateful for the support of our community partners and sponsors who help us deliver impactful programs for youth across New Brunswick." data-fr="Nous sommes reconnaissants du soutien de nos partenaires communautaires et commanditaires qui nous aident à offrir des programmes percutants pour les jeunes du Nouveau-Brunswick.">We are grateful for the support of our community partners and sponsors who help us deliver impactful programs for youth across New Brunswick.</p>
     </div>
-  </section>
-
-</div><!-- /page-programs -->
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     PAGE: YOUTH TEAMS & TRYOUTS
-═══════════════════════════════════════════════════════════════ -->
-<div class="page" id="page-teams">
-
-  <div class="about-hero">
-    <h1 data-en="Youth Teams — Harambe" data-fr="Équipes Jeunes — Harambe">Youth Teams — Harambe</h1>
-    <p data-en="Two exciting new youth teams launching Summer 2027. Register now for open tryouts — all passionate young athletes welcome." data-fr="Deux nouvelles équipes de jeunes excitantes lancées à l'été 2027. Inscrivez-vous maintenant pour les tryouts ouverts — tous les jeunes athlètes passionnés sont les bienvenus.">
-      Two exciting new youth teams launching Summer 2027. Register now for open tryouts — all passionate young athletes welcome.
-    </p>
+    <div class="sponsors-row" style="margin-bottom:40px;">
+      <div class="sponsor-placeholder" data-en="Your Logo Here" data-fr="Votre Logo Ici">Your Logo Here</div>
+      <div class="sponsor-placeholder" data-en="Your Logo Here" data-fr="Votre Logo Ici">Your Logo Here</div>
+      <div class="sponsor-placeholder" data-en="Your Logo Here" data-fr="Votre Logo Ici">Your Logo Here</div>
+      <div class="sponsor-placeholder" data-en="Your Logo Here" data-fr="Votre Logo Ici">Your Logo Here</div>
+      <div class="sponsor-placeholder" data-en="Your Logo Here" data-fr="Votre Logo Ici">Your Logo Here</div>
+      <div class="sponsor-placeholder" data-en="Your Logo Here" data-fr="Votre Logo Ici">Your Logo Here</div>
+    </div>
+    <div style="text-align:center;">
+      <a href="contact.html" class="btn-primary" data-en="Become a Partner" data-fr="Devenir Partenaire">Become a Partner</a>
+    </div>
   </div>
+</section>
 
-  <section class="section">
-    <div class="container">
-      <!-- Team Cards -->
-      <div class="teams-grid">
-        <div class="team-card">
-          <div class="team-header soccer">
-            <div class="sport-icon">⚽</div>
-            <h3 data-en="Harambe Soccer Team" data-fr="Équipe de Soccer Harambe">Harambe Soccer Team</h3>
-            <div class="launch" data-en="Launching Summer 2027" data-fr="Lancement Été 2027">Launching Summer 2027</div>
-          </div>
-          <div class="team-body">
-            <p data-en="Join the Harambe Soccer Team — a competitive youth soccer club open to passionate young athletes across New Brunswick. Training sessions, league play, and tournaments await." data-fr="Rejoignez l'Équipe de Soccer Harambe — un club de soccer jeunesse compétitif ouvert aux jeunes athlètes passionnés du Nouveau-Brunswick. Des séances d'entraînement, des ligues et des tournois vous attendent.">
-              Join the Harambe Soccer Team — a competitive youth soccer club open to passionate young athletes across New Brunswick. Training sessions, league play, and tournaments await.
-            </p>
-            <div class="prog-tags">
-              <span class="tag-chip">⚽ Soccer</span>
-              <span class="tag-chip" data-en="Ages 10–17" data-fr="Âges 10–17">Ages 10–17</span>
-              <span class="tag-chip" data-en="All Skill Levels" data-fr="Tous Niveaux">All Skill Levels</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="team-card">
-          <div class="team-header basketball">
-            <div class="sport-icon">🏀</div>
-            <h3 data-en="Harambe Basketball Team" data-fr="Équipe de Basketball Harambe">Harambe Basketball Team</h3>
-            <div class="launch" data-en="Launching Summer 2027" data-fr="Lancement Été 2027">Launching Summer 2027</div>
-          </div>
-          <div class="team-body">
-            <p data-en="Join the Harambe Basketball Team — bringing together youth who love the game. Develop your skills, build team spirit, and compete at the community level." data-fr="Rejoignez l'Équipe de Basketball Harambe — réunissant des jeunes qui aiment le jeu. Développez vos compétences, construisez l'esprit d'équipe et compétitionnez au niveau communautaire.">
-              Join the Harambe Basketball Team — bringing together youth who love the game. Develop your skills, build team spirit, and compete at the community level.
-            </p>
-            <div class="prog-tags">
-              <span class="tag-chip">🏀 Basketball</span>
-              <span class="tag-chip" data-en="Ages 10–17" data-fr="Âges 10–17">Ages 10–17</span>
-              <span class="tag-chip" data-en="All Skill Levels" data-fr="Tous Niveaux">All Skill Levels</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tryout Registration Form -->
-      <div class="form-wrap">
-        <h3 data-en="🏟️ Register for Tryouts" data-fr="🏟️ S'inscrire aux Tryouts">🏟️ Register for Tryouts</h3>
-        <form id="tryout-form" onsubmit="submitTryout(event)">
-          <div class="form-grid">
-            <div class="form-group">
-              <label data-en="Youth First Name *" data-fr="Prénom du Jeune *">Youth First Name *</label>
-              <input type="text" required placeholder="First name" id="f-firstname" />
-            </div>
-            <div class="form-group">
-              <label data-en="Youth Last Name *" data-fr="Nom de Famille *">Youth Last Name *</label>
-              <input type="text" required placeholder="Last name" id="f-lastname" />
-            </div>
-            <div class="form-group">
-              <label data-en="Date of Birth *" data-fr="Date de Naissance *">Date of Birth *</label>
-              <input type="date" required id="f-dob" />
-            </div>
-            <div class="form-group">
-              <label data-en="Age Group" data-fr="Groupe d'Âge">Age Group</label>
-              <select id="f-age">
-                <option data-en="Select age group" data-fr="Choisir un groupe">Select age group</option>
-                <option value="u10">Under 10</option>
-                <option value="u12">Under 12</option>
-                <option value="u14">Under 14</option>
-                <option value="u16">Under 16</option>
-                <option value="u18">Under 18</option>
-              </select>
-            </div>
-            <div class="form-group full">
-              <label data-en="Sport / Team *" data-fr="Sport / Équipe *">Sport / Team *</label>
-              <select required id="f-team">
-                <option value="" data-en="Select a team" data-fr="Choisir une équipe">Select a team</option>
-                <option value="soccer" data-en="Harambe Soccer Team" data-fr="Équipe de Soccer Harambe">Harambe Soccer Team</option>
-                <option value="basketball" data-en="Harambe Basketball Team" data-fr="Équipe de Basketball Harambe">Harambe Basketball Team</option>
-                <option value="both" data-en="Both Teams" data-fr="Les Deux Équipes">Both Teams</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label data-en="Parent / Guardian Name *" data-fr="Nom du Parent / Tuteur *">Parent / Guardian Name *</label>
-              <input type="text" required placeholder="Full name" id="f-parent" />
-            </div>
-            <div class="form-group">
-              <label data-en="Phone Number *" data-fr="Numéro de Téléphone *">Phone Number *</label>
-              <input type="tel" required placeholder="(506) 000-0000" id="f-phone" />
-            </div>
-            <div class="form-group full">
-              <label data-en="Email Address *" data-fr="Adresse Courriel *">Email Address *</label>
-              <input type="email" required placeholder="your@email.com" id="f-email" />
-            </div>
-            <div class="form-group full">
-              <label data-en="City / Community" data-fr="Ville / Communauté">City / Community</label>
-              <input type="text" placeholder="e.g. Moncton, Fredericton, Saint John..." id="f-city" />
-            </div>
-            <div class="form-group full">
-              <label data-en="Is your child a newcomer or immigrant? (optional)" data-fr="Votre enfant est-il un nouvel arrivant ou immigrant? (optionnel)">Is your child a newcomer or immigrant? (optional)</label>
-              <select id="f-newcomer">
-                <option value="" data-en="Prefer not to say" data-fr="Préfère ne pas répondre">Prefer not to say</option>
-                <option value="yes" data-en="Yes" data-fr="Oui">Yes</option>
-                <option value="no" data-en="No" data-fr="Non">No</option>
-              </select>
-            </div>
-            <div class="form-group full">
-              <label data-en="Any experience or comments?" data-fr="Expérience ou commentaires?">Any experience or comments?</label>
-              <textarea placeholder="Tell us about your child's experience..." id="f-comments"></textarea>
-            </div>
-          </div>
-          <button type="submit" class="form-submit" data-en="Submit Registration" data-fr="Soumettre l'Inscription">Submit Registration</button>
-          <div class="success-msg" id="tryout-success" data-en="✅ Thank you! Your tryout registration has been received. We'll be in touch soon!" data-fr="✅ Merci! Votre inscription aux tryouts a été reçue. Nous vous contacterons bientôt!">
-            ✅ Thank you! Your tryout registration has been received. We'll be in touch soon!
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-</div><!-- /page-teams -->
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     PAGE: COMMUNITY
-═══════════════════════════════════════════════════════════════ -->
-<div class="page" id="page-community">
-
-  <div class="about-hero">
-    <h1 data-en="Community & Inclusion" data-fr="Communauté & Inclusion">Community & Inclusion</h1>
-    <p data-en="We believe sport is a universal language that brings people together, breaks barriers, and builds lasting bonds." data-fr="Nous croyons que le sport est un langage universel qui rassemble les gens, brise les barrières et construit des liens durables.">
-      We believe sport is a universal language that brings people together, breaks barriers, and builds lasting bonds.
-    </p>
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2 data-en="Ready to Make a Difference?" data-fr="Prêt à Faire une Différence?">Ready to Make a Difference?</h2>
+    <p data-en="Join us as a volunteer, sponsor, or participant. Every contribution shapes a better future for our youth." data-fr="Rejoignez-nous en tant que bénévole, commanditaire ou participant. Chaque contribution façonne un avenir meilleur pour nos jeunes.">Join us as a volunteer, sponsor, or participant. Every contribution shapes a better future for our youth.</p>
+    <a href="contact.html" class="btn-dark" data-en="Get Involved Today" data-fr="Impliquez-vous Aujourd'hui">Get Involved Today</a>
   </div>
+</section>
 
-  <section class="section">
-    <div class="container">
-      <div class="cards-3" style="margin-bottom:60px;">
-        <div class="card navy-top">
-          <div class="card-icon">🌍</div>
-          <h3 data-en="Newcomer Integration" data-fr="Intégration des Nouveaux Arrivants">Newcomer Integration</h3>
-          <p data-en="We actively reach out to newcomers and immigrant families, offering a welcoming space where everyone belongs from day one. Our programs are designed to ease the transition into community life." data-fr="Nous rejoignons activement les nouveaux arrivants et les familles immigrantes, offrant un espace accueillant où tout le monde appartient dès le premier jour. Nos programmes sont conçus pour faciliter la transition vers la vie communautaire.">
-            We actively reach out to newcomers and immigrant families, offering a welcoming space where everyone belongs from day one. Our programs are designed to ease the transition into community life.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🤝</div>
-          <h3 data-en="Local Connection" data-fr="Connexion Locale">Local Connection</h3>
-          <p data-en="By bringing newcomers and locals together through shared activities, we build authentic friendships and community bonds that go far beyond the playing field." data-fr="En réunissant nouveaux arrivants et locaux à travers des activités partagées, nous construisons des amitiés authentiques et des liens communautaires qui vont bien au-delà du terrain de jeu.">
-            By bringing newcomers and locals together through shared activities, we build authentic friendships and community bonds that go far beyond the playing field.
-          </p>
-        </div>
-        <div class="card red-top">
-          <div class="card-icon">💬</div>
-          <h3 data-en="Bilingual & Multicultural" data-fr="Bilingue & Multiculturel">Bilingual & Multicultural</h3>
-          <p data-en="As a bilingual organization serving both English and French communities, we celebrate and reflect the rich multicultural tapestry of New Brunswick." data-fr="En tant qu'organisme bilingue desservant les communautés anglophone et francophone, nous célébrons et reflètons la riche mosaïque multiculturelle du Nouveau-Brunswick.">
-            As a bilingual organization serving both English and French communities, we celebrate and reflect the rich multicultural tapestry of New Brunswick.
-          </p>
-        </div>
-      </div>
-
-      <div style="background:linear-gradient(135deg,var(--navy),#1a3a6b);border-radius:16px;padding:56px 48px;color:var(--white);text-align:center;">
-        <div style="font-size:48px;margin-bottom:16px;">🏘️</div>
-        <h2 style="font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;margin-bottom:16px;" data-en="Stronger Together" data-fr="Plus Forts Ensemble">Stronger Together</h2>
-        <p style="font-size:17px;opacity:.85;max-width:640px;margin:0 auto 28px;line-height:1.8;" data-en="We are committed to making a difference — not only on sports courts, but also in the local community that welcomes each of us. Whether you've been in New Brunswick your whole life or just arrived — you belong here." data-fr="Nous nous engageons à faire une différence — non seulement sur les terrains de sport, mais aussi dans la communauté locale qui nous accueille chacun. Que vous soyez au Nouveau-Brunswick depuis toujours ou que vous veniez d'arriver — vous avez votre place ici.">
-          We are committed to making a difference — not only on sports courts, but also in the local community that welcomes each of us. Whether you've been in New Brunswick your whole life or just arrived — you belong here.
-        </p>
-        <a href="#" class="btn-primary" onclick="showPage('contact')" data-en="Join Our Community" data-fr="Rejoindre Notre Communauté">Join Our Community</a>
-      </div>
-    </div>
-  </section>
-
-</div><!-- /page-community -->
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     PAGE: CONTACT
-═══════════════════════════════════════════════════════════════ -->
-<div class="page" id="page-contact">
-
-  <div class="about-hero">
-    <h1 data-en="Contact Us" data-fr="Contactez-Nous">Contact Us</h1>
-    <p data-en="Questions, partnerships, volunteering — we'd love to hear from you." data-fr="Questions, partenariats, bénévolat — nous serions ravis de vous entendre.">
-      Questions, partnerships, volunteering — we'd love to hear from you.
-    </p>
-  </div>
-
-  <section class="section">
-    <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;" class="two-col">
-        <!-- Contact Info -->
-        <div>
-          <div class="highlight-box" style="margin-bottom:28px;">
-            <h3 data-en="Get In Touch" data-fr="Prenez Contact">Get In Touch</h3>
-            <ul>
-              <li>📍 <span data-en="New Brunswick, Canada" data-fr="Nouveau-Brunswick, Canada">New Brunswick, Canada</span></li>
-              <li>📧 info@ysnb.ca</li>
-              <li>📱 <span data-en="Coming Soon" data-fr="Bientôt Disponible">Coming Soon</span></li>
-              <li>🌐 www.ysnb.ca</li>
-            </ul>
-          </div>
-          <div class="card" style="border-top-color:var(--red);">
-            <div class="card-icon">🤲</div>
-            <h3 data-en="Volunteer With Us" data-fr="Bénévole Avec Nous">Volunteer With Us</h3>
-            <p data-en="We are always looking for passionate volunteers to help run programs, coach teams, and support our community events." data-fr="Nous cherchons toujours des bénévoles passionnés pour aider à gérer des programmes, entraîner des équipes et soutenir nos événements communautaires.">
-              We are always looking for passionate volunteers to help run programs, coach teams, and support our community events.
-            </p>
-          </div>
-        </div>
-
-        <!-- Contact Form -->
-        <div class="form-wrap" style="box-shadow:none;padding:0;">
-          <h3 style="text-align:left;margin-bottom:24px;" data-en="Send Us a Message" data-fr="Envoyez-Nous un Message">Send Us a Message</h3>
-          <form id="contact-form" onsubmit="submitContact(event)">
-            <div class="form-grid">
-              <div class="form-group">
-                <label data-en="First Name" data-fr="Prénom">First Name</label>
-                <input type="text" required placeholder="First name" />
-              </div>
-              <div class="form-group">
-                <label data-en="Last Name" data-fr="Nom de Famille">Last Name</label>
-                <input type="text" required placeholder="Last name" />
-              </div>
-              <div class="form-group full">
-                <label data-en="Email Address" data-fr="Adresse Courriel">Email Address</label>
-                <input type="email" required placeholder="your@email.com" />
-              </div>
-              <div class="form-group full">
-                <label data-en="Subject" data-fr="Sujet">Subject</label>
-                <select>
-                  <option data-en="General Inquiry" data-fr="Renseignement Général">General Inquiry</option>
-                  <option data-en="Partnership / Sponsorship" data-fr="Partenariat / Commandite">Partnership / Sponsorship</option>
-                  <option data-en="Volunteering" data-fr="Bénévolat">Volunteering</option>
-                  <option data-en="Programs Information" data-fr="Information sur les Programmes">Programs Information</option>
-                  <option data-en="Youth Teams / Tryouts" data-fr="Équipes Jeunes / Tryouts">Youth Teams / Tryouts</option>
-                  <option data-en="Media / Press" data-fr="Médias / Presse">Media / Press</option>
-                </select>
-              </div>
-              <div class="form-group full">
-                <label data-en="Message" data-fr="Message">Message</label>
-                <textarea required placeholder="Your message..." style="min-height:130px;"></textarea>
-              </div>
-            </div>
-            <button type="submit" class="form-submit" data-en="Send Message" data-fr="Envoyer le Message">Send Message</button>
-            <div class="success-msg" id="contact-success" data-en="✅ Message sent! We'll get back to you as soon as possible." data-fr="✅ Message envoyé! Nous vous répondrons dès que possible.">
-              ✅ Message sent! We'll get back to you as soon as possible.
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</div><!-- /page-contact -->
-
-
-<!-- ═══════════════════════════════════════════════════════════════
-     FOOTER (shared across all pages)
-═══════════════════════════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
       <div class="brand-name" data-en="Youth Sports Network NB" data-fr="Réseau Sportif pour les Jeunes NB">Youth Sports Network NB</div>
       <div class="brand-fr" data-en="Réseau Sportif pour les Jeunes NB" data-fr="Youth Sports Network NB">Réseau Sportif pour les Jeunes NB</div>
-      <p data-en="Building stronger futures for young people across New Brunswick through sport, community, and development." data-fr="Bâtir un avenir meilleur pour les jeunes du Nouveau-Brunswick grâce au sport, à la communauté et au développement.">
-        Building stronger futures for young people across New Brunswick through sport, community, and development.
-      </p>
+      <p data-en="Building stronger futures for young people across New Brunswick through sport, community, and development." data-fr="Bâtir un avenir meilleur pour les jeunes du Nouveau-Brunswick grâce au sport, à la communauté et au développement.">Building stronger futures for young people across New Brunswick through sport, community, and development.</p>
     </div>
     <div class="footer-col">
       <h4 data-en="Programs" data-fr="Programmes">Programs</h4>
       <ul>
-        <li><a href="#" onclick="showPage('teams')" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a></li>
-        <li><a href="#" onclick="showPage('programs')" data-en="Kids in Motion" data-fr="Enfants en Mouvement">Kids in Motion</a></li>
-        <li><a href="#" onclick="showPage('programs')" data-en="Beacon Youth" data-fr="Jeunesse Beacon">Beacon Youth</a></li>
+        <li><a href="teams.html" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a></li>
+        <li><a href="programs.html" data-en="Kids in Motion" data-fr="Enfants en Mouvement">Kids in Motion</a></li>
+        <li><a href="programs.html" data-en="Beacon Youth" data-fr="Jeunesse Beacon">Beacon Youth</a></li>
+        <li><a href="tryouts.html" data-en="Register for Tryouts" data-fr="Inscription aux Tryouts">Register for Tryouts</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4 data-en="Organization" data-fr="Organisation">Organization</h4>
       <ul>
-        <li><a href="#" onclick="showPage('about')" data-en="About Us" data-fr="À Propos">About Us</a></li>
-        <li><a href="#" onclick="showPage('community')" data-en="Community" data-fr="Communauté">Community</a></li>
-        <li><a href="#" onclick="showPage('contact')" data-en="Contact" data-fr="Contact">Contact</a></li>
+        <li><a href="about.html" data-en="About Us" data-fr="À Propos">About Us</a></li>
+        <li><a href="community.html" data-en="Community" data-fr="Communauté">Community</a></li>
+        <li><a href="contact.html" data-en="Contact" data-fr="Contact">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
       <h4 data-en="Get Involved" data-fr="Impliquez-Vous">Get Involved</h4>
       <ul>
-        <li><a href="#" onclick="showPage('teams')" data-en="Tryout Registration" data-fr="Inscription Tryouts">Tryout Registration</a></li>
-        <li><a href="#" onclick="showPage('contact')" data-en="Volunteer" data-fr="Bénévole">Volunteer</a></li>
-        <li><a href="#" onclick="showPage('contact')" data-en="Sponsor Us" data-fr="Commanditez-Nous">Sponsor Us</a></li>
+        <li><a href="tryouts.html" data-en="Tryout Registration" data-fr="Inscription Tryouts">Tryout Registration</a></li>
+        <li><a href="contact.html" data-en="Volunteer" data-fr="Bénévole">Volunteer</a></li>
+        <li><a href="contact.html" data-en="Sponsor Us" data-fr="Commanditez-Nous">Sponsor Us</a></li>
       </ul>
     </div>
   </div>
@@ -1020,102 +250,6 @@
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════════════════════════════════════ -->
-<script>
-  let currentLang = 'en';
-
-  /* ── Page navigation ──────────────────────────────────── */
-  function showPage(name) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    const target = document.getElementById('page-' + name);
-    if (target) {
-      target.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-    // close mobile nav
-    document.getElementById('main-nav').classList.remove('open');
-  }
-
-  /* ── Mobile hamburger ─────────────────────────────────── */
-  function toggleNav() {
-    document.getElementById('main-nav').classList.toggle('open');
-  }
-
-  /* ── Language toggle ──────────────────────────────────── */
-  function toggleLang() {
-    currentLang = currentLang === 'en' ? 'fr' : 'en';
-    const btn = document.getElementById('lang-toggle');
-    btn.textContent = currentLang === 'en' ? 'FR' : 'EN';
-    applyLang();
-  }
-
-  function applyLang() {
-    document.querySelectorAll('[data-en]').forEach(el => {
-      const text = el.getAttribute('data-' + currentLang);
-      if (!text) return;
-      // preserve inner HTML for elements with <span> tags
-      if (el.tagName === 'H1' && el.innerHTML.includes('<span>')) {
-        const enHTML = el.getAttribute('data-en');
-        const frHTML = el.getAttribute('data-fr');
-        el.innerHTML = currentLang === 'en' ? enHTML : frHTML;
-      } else {
-        el.textContent = text;
-      }
-    });
-    document.documentElement.lang = currentLang;
-    // update form placeholders
-    updatePlaceholders();
-  }
-
-  function updatePlaceholders() {
-    const map = {
-      en: { firstname:'First name', lastname:'Last name', parent:'Full name', phone:'(506) 000-0000', email:'your@email.com', city:'e.g. Moncton, Fredericton, Saint John...', comments:'Tell us about your child\'s experience...' },
-      fr: { firstname:'Prénom', lastname:'Nom de famille', parent:'Nom complet', phone:'(506) 000-0000', email:'votre@courriel.ca', city:'ex. Moncton, Fredericton, Saint-Jean...', comments:'Parlez-nous de l\'expérience de votre enfant...' }
-    };
-    const m = map[currentLang];
-    const g = id => document.getElementById(id);
-    if(g('f-firstname')) g('f-firstname').placeholder = m.firstname;
-    if(g('f-lastname'))  g('f-lastname').placeholder  = m.lastname;
-    if(g('f-parent'))    g('f-parent').placeholder    = m.parent;
-    if(g('f-phone'))     g('f-phone').placeholder     = m.phone;
-    if(g('f-email'))     g('f-email').placeholder     = m.email;
-    if(g('f-city'))      g('f-city').placeholder      = m.city;
-    if(g('f-comments'))  g('f-comments').placeholder  = m.comments;
-  }
-
-  /* ── Forms ────────────────────────────────────────────── */
-  function submitTryout(e) {
-    e.preventDefault();
-    const msg = document.getElementById('tryout-success');
-    msg.style.display = 'block';
-    msg.textContent = msg.getAttribute('data-' + currentLang);
-    e.target.reset();
-    showToast(currentLang === 'en' ? '✅ Registration submitted!' : '✅ Inscription soumise!');
-  }
-
-  function submitContact(e) {
-    e.preventDefault();
-    const msg = document.getElementById('contact-success');
-    msg.style.display = 'block';
-    msg.textContent = msg.getAttribute('data-' + currentLang);
-    e.target.reset();
-    showToast(currentLang === 'en' ? '✅ Message sent!' : '✅ Message envoyé!');
-  }
-
-  function showToast(text) {
-    const t = document.getElementById('toast');
-    t.textContent = text;
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3500);
-  }
-
-  /* ── Init ─────────────────────────────────────────────── */
-  // Restore hero h1 data attributes for lang switching
-  document.querySelectorAll('h1[data-en]').forEach(el => {
-    el.setAttribute('data-en', el.innerHTML);
-  });
-</script>
+<script src="lang.js"></script>
 </body>
 </html>

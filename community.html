@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community — Youth Sports Network NB</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo-wrap" href="index.html">
+      <svg class="logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="30,15 85,10 95,45 80,75 60,90 35,85 20,60 25,35" fill="#1a2d5a"/>
+        <polygon points="20,60 35,85 25,80 15,70" fill="#7a1b2a"/>
+        <ellipse cx="60" cy="35" rx="9" ry="9" fill="#b8952a"/>
+        <line x1="60" y1="44" x2="60" y2="75" stroke="#b8952a" stroke-width="5" stroke-linecap="round"/>
+        <line x1="60" y1="55" x2="45" y2="65" stroke="#b8952a" stroke-width="4" stroke-linecap="round"/>
+        <line x1="60" y1="55" x2="75" y2="65" stroke="#b8952a" stroke-width="4" stroke-linecap="round"/>
+        <line x1="60" y1="75" x2="50" y2="92" stroke="#b8952a" stroke-width="4" stroke-linecap="round"/>
+        <line x1="60" y1="75" x2="70" y2="92" stroke="#b8952a" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <div class="logo-text">
+        <div class="en-name" data-en="YOUTH SPORTS NETWORK NB" data-fr="RÉSEAU SPORTIF JEUNES NB">YOUTH SPORTS NETWORK NB</div>
+        <div class="fr-name" data-en="Réseau Sportif pour les Jeunes NB" data-fr="Youth Sports Network NB">Réseau Sportif pour les Jeunes NB</div>
+      </div>
+    </a>
+    <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    <nav id="main-nav">
+      <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
+      <a href="about.html" data-en="About" data-fr="À propos">About</a>
+      <a href="programs.html" data-en="Programs" data-fr="Programmes">Programs</a>
+      <a href="teams.html" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a>
+      <a href="community.html" class="active" data-en="Community" data-fr="Communauté">Community</a>
+      <a href="contact.html" data-en="Contact" data-fr="Contact">Contact</a>
+      <button class="lang-btn" onclick="toggleLang()" id="lang-toggle">FR</button>
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <h1 data-en="Community &amp; Inclusion" data-fr="Communauté &amp; Inclusion">Community &amp; Inclusion</h1>
+  <p data-en="We believe sport is a universal language that brings people together, breaks barriers, and builds lasting bonds." data-fr="Nous croyons que le sport est un langage universel qui rassemble les gens, brise les barrières et construit des liens durables.">We believe sport is a universal language that brings people together, breaks barriers, and builds lasting bonds.</p>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="cards-3" style="margin-bottom:60px;">
+      <div class="card navy-top">
+        <div class="card-icon">🌍</div>
+        <h3 data-en="Newcomer Integration" data-fr="Intégration des Nouveaux Arrivants">Newcomer Integration</h3>
+        <p data-en="We actively reach out to newcomers and immigrant families, offering a welcoming space where everyone belongs from day one. Our programs are designed to ease the transition into community life." data-fr="Nous rejoignons activement les nouveaux arrivants et les familles immigrantes, offrant un espace accueillant où tout le monde appartient dès le premier jour. Nos programmes sont conçus pour faciliter la transition vers la vie communautaire.">We actively reach out to newcomers and immigrant families, offering a welcoming space where everyone belongs from day one. Our programs are designed to ease the transition into community life.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3 data-en="Local Connection" data-fr="Connexion Locale">Local Connection</h3>
+        <p data-en="By bringing newcomers and locals together through shared activities, we build authentic friendships and community bonds that go far beyond the playing field." data-fr="En réunissant nouveaux arrivants et locaux à travers des activités partagées, nous construisons des amitiés authentiques et des liens communautaires qui vont bien au-delà du terrain de jeu.">By bringing newcomers and locals together through shared activities, we build authentic friendships and community bonds that go far beyond the playing field.</p>
+      </div>
+      <div class="card red-top">
+        <div class="card-icon">💬</div>
+        <h3 data-en="Bilingual &amp; Multicultural" data-fr="Bilingue &amp; Multiculturel">Bilingual &amp; Multicultural</h3>
+        <p data-en="As a bilingual organization serving both English and French communities, we celebrate and reflect the rich multicultural tapestry of New Brunswick." data-fr="En tant qu'organisme bilingue desservant les communautés anglophone et francophone, nous célébrons et reflètons la riche mosaïque multiculturelle du Nouveau-Brunswick.">As a bilingual organization serving both English and French communities, we celebrate and reflect the rich multicultural tapestry of New Brunswick.</p>
+      </div>
+    </div>
+
+    <div style="background:linear-gradient(135deg,var(--navy),#1a3a6b);border-radius:16px;padding:56px 48px;color:var(--white);text-align:center;">
+      <div style="font-size:48px;margin-bottom:16px;">🏘️</div>
+      <h2 style="font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;margin-bottom:16px;" data-en="Stronger Together" data-fr="Plus Forts Ensemble">Stronger Together</h2>
+      <p style="font-size:17px;opacity:.85;max-width:640px;margin:0 auto 28px;line-height:1.8;" data-en="We are committed to making a difference — not only on sports courts, but also in the local community that welcomes each of us. Whether you've been in New Brunswick your whole life or just arrived — you belong here." data-fr="Nous nous engageons à faire une différence — non seulement sur les terrains de sport, mais aussi dans la communauté locale qui nous accueille chacun. Que vous soyez au Nouveau-Brunswick depuis toujours ou que vous veniez d'arriver — vous avez votre place ici.">We are committed to making a difference — not only on sports courts, but also in the local community that welcomes each of us. Whether you've been in New Brunswick your whole life or just arrived — you belong here.</p>
+      <a href="contact.html" class="btn-primary" data-en="Join Our Community" data-fr="Rejoindre Notre Communauté">Join Our Community</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand-name" data-en="Youth Sports Network NB" data-fr="Réseau Sportif pour les Jeunes NB">Youth Sports Network NB</div>
+      <div class="brand-fr" data-en="Réseau Sportif pour les Jeunes NB" data-fr="Youth Sports Network NB">Réseau Sportif pour les Jeunes NB</div>
+      <p data-en="Building stronger futures for young people across New Brunswick through sport, community, and development." data-fr="Bâtir un avenir meilleur pour les jeunes du Nouveau-Brunswick grâce au sport, à la communauté et au développement.">Building stronger futures for young people across New Brunswick through sport, community, and development.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Programs" data-fr="Programmes">Programs</h4>
+      <ul>
+        <li><a href="teams.html" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a></li>
+        <li><a href="programs.html" data-en="Kids in Motion" data-fr="Enfants en Mouvement">Kids in Motion</a></li>
+        <li><a href="programs.html" data-en="Beacon Youth" data-fr="Jeunesse Beacon">Beacon Youth</a></li>
+        <li><a href="tryouts.html" data-en="Register for Tryouts" data-fr="Inscription aux Tryouts">Register for Tryouts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Organization" data-fr="Organisation">Organization</h4>
+      <ul>
+        <li><a href="about.html" data-en="About Us" data-fr="À Propos">About Us</a></li>
+        <li><a href="community.html" data-en="Community" data-fr="Communauté">Community</a></li>
+        <li><a href="contact.html" data-en="Contact" data-fr="Contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Get Involved" data-fr="Impliquez-Vous">Get Involved</h4>
+      <ul>
+        <li><a href="tryouts.html" data-en="Tryout Registration" data-fr="Inscription Tryouts">Tryout Registration</a></li>
+        <li><a href="contact.html" data-en="Volunteer" data-fr="Bénévole">Volunteer</a></li>
+        <li><a href="contact.html" data-en="Sponsor Us" data-fr="Commanditez-Nous">Sponsor Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Youth Sports Network NB | Réseau Sportif pour les Jeunes NB — <span data-en="Non-Profit Organization, New Brunswick, Canada" data-fr="Organisme Sans But Lucratif, Nouveau-Brunswick, Canada">Non-Profit Organization, New Brunswick, Canada</span></p>
+  </div>
+</footer>
+<script src="lang.js"></script>
+</body>
+</html>

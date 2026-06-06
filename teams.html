@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Youth Teams — Youth Sports Network NB</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo-wrap" href="index.html">
+      <svg class="logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="30,15 85,10 95,45 80,75 60,90 35,85 20,60 25,35" fill="#1a2d5a"/>
+        <polygon points="20,60 35,85 25,80 15,70" fill="#7a1b2a"/>
+        <ellipse cx="60" cy="35" rx="9" ry="9" fill="#b8952a"/>
+        <line x1="60" y1="44" x2="60" y2="75" stroke="#b8952a" stroke-width="5" stroke-linecap="round"/>
+        <line x1="60" y1="55" x2="45" y2="65" stroke="#b8952a" stroke-width="4" stroke-linecap="round"/>
+        <line x1="60" y1="55" x2="75" y2="65" stroke="#b8952a" stroke-width="4" stroke-linecap="round"/>
+        <line x1="60" y1="75" x2="50" y2="92" stroke="#b8952a" stroke-width="4" stroke-linecap="round"/>
+        <line x1="60" y1="75" x2="70" y2="92" stroke="#b8952a" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <div class="logo-text">
+        <div class="en-name" data-en="YOUTH SPORTS NETWORK NB" data-fr="RÉSEAU SPORTIF JEUNES NB">YOUTH SPORTS NETWORK NB</div>
+        <div class="fr-name" data-en="Réseau Sportif pour les Jeunes NB" data-fr="Youth Sports Network NB">Réseau Sportif pour les Jeunes NB</div>
+      </div>
+    </a>
+    <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    <nav id="main-nav">
+      <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
+      <a href="about.html" data-en="About" data-fr="À propos">About</a>
+      <a href="programs.html" data-en="Programs" data-fr="Programmes">Programs</a>
+      <a href="teams.html" class="active" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a>
+      <a href="community.html" data-en="Community" data-fr="Communauté">Community</a>
+      <a href="contact.html" data-en="Contact" data-fr="Contact">Contact</a>
+      <button class="lang-btn" onclick="toggleLang()" id="lang-toggle">FR</button>
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <h1 data-en="Youth Teams — Harambe" data-fr="Équipes Jeunes — Harambe">Youth Teams — Harambe</h1>
+  <p data-en="Two exciting new youth teams launching Summer 2027. All passionate young athletes are welcome to try out." data-fr="Deux nouvelles équipes de jeunes excitantes lancées à l'été 2027. Tous les jeunes athlètes passionnés sont les bienvenus aux tryouts.">Two exciting new youth teams launching Summer 2027. All passionate young athletes are welcome to try out.</p>
+</section>
+
+<!-- TEAM CARDS -->
+<section class="section">
+  <div class="container">
+    <div class="teams-grid">
+      <div class="team-card">
+        <div class="team-header soccer">
+          <div class="sport-icon">⚽</div>
+          <h3 data-en="Harambe Soccer Team" data-fr="Équipe de Soccer Harambe">Harambe Soccer Team</h3>
+          <div class="launch" data-en="Launching Summer 2027" data-fr="Lancement Été 2027">Launching Summer 2027</div>
+        </div>
+        <div class="team-body">
+          <p data-en="Join the Harambe Soccer Team — a competitive youth soccer club open to passionate young athletes across New Brunswick. Training sessions, league play, and tournaments await." data-fr="Rejoignez l'Équipe de Soccer Harambe — un club de soccer jeunesse compétitif ouvert aux jeunes athlètes passionnés du Nouveau-Brunswick. Des séances d'entraînement, des ligues et des tournois vous attendent.">Join the Harambe Soccer Team — a competitive youth soccer club open to passionate young athletes across New Brunswick. Training sessions, league play, and tournaments await.</p>
+          <div class="prog-tags">
+            <span class="tag-chip">⚽ Soccer</span>
+            <span class="tag-chip" data-en="Ages 10–17" data-fr="Âges 10–17">Ages 10–17</span>
+            <span class="tag-chip" data-en="All Skill Levels" data-fr="Tous Niveaux">All Skill Levels</span>
+          </div>
+          <a href="tryouts.html?team=soccer" class="btn-primary" style="display:inline-block;margin-top:8px;" data-en="Register for Soccer Tryouts" data-fr="S'inscrire aux Tryouts Soccer">Register for Soccer Tryouts</a>
+        </div>
+      </div>
+      <div class="team-card">
+        <div class="team-header basketball">
+          <div class="sport-icon">🏀</div>
+          <h3 data-en="Harambe Basketball Team" data-fr="Équipe de Basketball Harambe">Harambe Basketball Team</h3>
+          <div class="launch" data-en="Launching Summer 2027" data-fr="Lancement Été 2027">Launching Summer 2027</div>
+        </div>
+        <div class="team-body">
+          <p data-en="Join the Harambe Basketball Team — bringing together youth who love the game. Develop your skills, build team spirit, and compete at the community level." data-fr="Rejoignez l'Équipe de Basketball Harambe — réunissant des jeunes qui aiment le jeu. Développez vos compétences, construisez l'esprit d'équipe et compétitionnez au niveau communautaire.">Join the Harambe Basketball Team — bringing together youth who love the game. Develop your skills, build team spirit, and compete at the community level.</p>
+          <div class="prog-tags">
+            <span class="tag-chip">🏀 Basketball</span>
+            <span class="tag-chip" data-en="Ages 10–17" data-fr="Âges 10–17">Ages 10–17</span>
+            <span class="tag-chip" data-en="All Skill Levels" data-fr="Tous Niveaux">All Skill Levels</span>
+          </div>
+          <a href="tryouts.html?team=basketball" class="btn-primary" style="display:inline-block;margin-top:8px;" data-en="Register for Basketball Tryouts" data-fr="S'inscrire aux Tryouts Basketball">Register for Basketball Tryouts</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info boxes -->
+    <div class="cards-3" style="margin-top:56px;">
+      <div class="card navy-top">
+        <div class="card-icon">📋</div>
+        <h3 data-en="Tryout Process" data-fr="Processus de Tryout">Tryout Process</h3>
+        <p data-en="Register online, receive a confirmation email with tryout date and location, show up and give it your all. All skill levels welcome — we evaluate effort and attitude as much as skill." data-fr="Inscrivez-vous en ligne, recevez un email de confirmation avec la date et le lieu du tryout, présentez-vous et donnez tout. Tous les niveaux sont les bienvenus — nous évaluons l'effort et l'attitude autant que la compétence.">Register online, receive a confirmation email with tryout date and location, show up and give it your all. All skill levels welcome — we evaluate effort and attitude as much as skill.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌍</div>
+        <h3 data-en="Open to Everyone" data-fr="Ouvert à Tous">Open to Everyone</h3>
+        <p data-en="Our teams are open to all youth regardless of background, experience, or whether you are a newcomer to Canada. Sport is a universal language." data-fr="Nos équipes sont ouvertes à tous les jeunes, quelle que soit leur origine, expérience ou si vous êtes un nouvel arrivant au Canada. Le sport est un langage universel.">Our teams are open to all youth regardless of background, experience, or whether you are a newcomer to Canada. Sport is a universal language.</p>
+      </div>
+      <div class="card red-top">
+        <div class="card-icon">📅</div>
+        <h3 data-en="Timeline" data-fr="Calendrier">Timeline</h3>
+        <p data-en="Tryout registrations open early 2027. Teams officially launch Summer 2027. Register your interest now and we'll notify you as soon as tryout dates are confirmed." data-fr="Les inscriptions aux tryouts ouvrent début 2027. Les équipes sont officiellement lancées à l'été 2027. Inscrivez votre intérêt maintenant et nous vous informerons dès que les dates sont confirmées.">Tryout registrations open early 2027. Teams officially launch Summer 2027. Register your interest now and we'll notify you as soon as tryout dates are confirmed.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:56px;">
+      <a href="tryouts.html" class="btn-primary" style="font-size:17px;padding:16px 48px;" data-en="Register for Tryouts Now" data-fr="S'inscrire aux Tryouts Maintenant">Register for Tryouts Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand-name" data-en="Youth Sports Network NB" data-fr="Réseau Sportif pour les Jeunes NB">Youth Sports Network NB</div>
+      <div class="brand-fr" data-en="Réseau Sportif pour les Jeunes NB" data-fr="Youth Sports Network NB">Réseau Sportif pour les Jeunes NB</div>
+      <p data-en="Building stronger futures for young people across New Brunswick through sport, community, and development." data-fr="Bâtir un avenir meilleur pour les jeunes du Nouveau-Brunswick grâce au sport, à la communauté et au développement.">Building stronger futures for young people across New Brunswick through sport, community, and development.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Programs" data-fr="Programmes">Programs</h4>
+      <ul>
+        <li><a href="teams.html" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a></li>
+        <li><a href="programs.html" data-en="Kids in Motion" data-fr="Enfants en Mouvement">Kids in Motion</a></li>
+        <li><a href="programs.html" data-en="Beacon Youth" data-fr="Jeunesse Beacon">Beacon Youth</a></li>
+        <li><a href="tryouts.html" data-en="Register for Tryouts" data-fr="Inscription aux Tryouts">Register for Tryouts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Organization" data-fr="Organisation">Organization</h4>
+      <ul>
+        <li><a href="about.html" data-en="About Us" data-fr="À Propos">About Us</a></li>
+        <li><a href="community.html" data-en="Community" data-fr="Communauté">Community</a></li>
+        <li><a href="contact.html" data-en="Contact" data-fr="Contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Get Involved" data-fr="Impliquez-Vous">Get Involved</h4>
+      <ul>
+        <li><a href="tryouts.html" data-en="Tryout Registration" data-fr="Inscription Tryouts">Tryout Registration</a></li>
+        <li><a href="contact.html" data-en="Volunteer" data-fr="Bénévole">Volunteer</a></li>
+        <li><a href="contact.html" data-en="Sponsor Us" data-fr="Commanditez-Nous">Sponsor Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Youth Sports Network NB | Réseau Sportif pour les Jeunes NB — <span data-en="Non-Profit Organization, New Brunswick, Canada" data-fr="Organisme Sans But Lucratif, Nouveau-Brunswick, Canada">Non-Profit Organization, New Brunswick, Canada</span></p>
+  </div>
+</footer>
+<script src="lang.js"></script>
+</body>
+</html>

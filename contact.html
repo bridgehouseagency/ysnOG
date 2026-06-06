@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Youth Sports Network NB</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo-wrap" href="index.html">
+      <svg class="logo-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="30,15 85,10 95,45 80,75 60,90 35,85 20,60 25,35" fill="#1a2d5a"/>
+        <polygon points="20,60 35,85 25,80 15,70" fill="#7a1b2a"/>
+        <ellipse cx="60" cy="35" rx="9" ry="9" fill="#b8952a"/>
+        <line x1="60" y1="44" x2="60" y2="75" stroke="#b8952a" stroke-width="5" stroke-linecap="round"/>
+        <line x1="60" y1="55" x2="45" y2="65" stroke="#b8952a" stroke-width="4" stroke-linecap="round"/>
+        <line x1="60" y1="55" x2="75" y2="65" stroke="#b8952a" stroke-width="4" stroke-linecap="round"/>
+        <line x1="60" y1="75" x2="50" y2="92" stroke="#b8952a" stroke-width="4" stroke-linecap="round"/>
+        <line x1="60" y1="75" x2="70" y2="92" stroke="#b8952a" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+      <div class="logo-text">
+        <div class="en-name" data-en="YOUTH SPORTS NETWORK NB" data-fr="RÉSEAU SPORTIF JEUNES NB">YOUTH SPORTS NETWORK NB</div>
+        <div class="fr-name" data-en="Réseau Sportif pour les Jeunes NB" data-fr="Youth Sports Network NB">Réseau Sportif pour les Jeunes NB</div>
+      </div>
+    </a>
+    <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    <nav id="main-nav">
+      <a href="index.html" data-en="Home" data-fr="Accueil">Home</a>
+      <a href="about.html" data-en="About" data-fr="À propos">About</a>
+      <a href="programs.html" data-en="Programs" data-fr="Programmes">Programs</a>
+      <a href="teams.html" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a>
+      <a href="community.html" data-en="Community" data-fr="Communauté">Community</a>
+      <a href="contact.html" class="active" data-en="Contact" data-fr="Contact">Contact</a>
+      <button class="lang-btn" onclick="toggleLang()" id="lang-toggle">FR</button>
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <h1 data-en="Contact Us" data-fr="Contactez-Nous">Contact Us</h1>
+  <p data-en="Questions, partnerships, volunteering — we'd love to hear from you." data-fr="Questions, partenariats, bénévolat — nous serions ravis de vous entendre.">Questions, partnerships, volunteering — we'd love to hear from you.</p>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="two-col" style="align-items:start;">
+      <!-- Contact Info -->
+      <div>
+        <div class="highlight-box" style="margin-bottom:28px;">
+          <h3 data-en="Get In Touch" data-fr="Prenez Contact">Get In Touch</h3>
+          <ul>
+            <li>📍 <span data-en="New Brunswick, Canada" data-fr="Nouveau-Brunswick, Canada">New Brunswick, Canada</span></li>
+            <li>📧 info@ysnb.ca</li>
+            <li>📱 <span data-en="Coming Soon" data-fr="Bientôt Disponible">Coming Soon</span></li>
+            <li>🌐 www.ysnb.ca</li>
+          </ul>
+        </div>
+        <div class="card" style="border-top-color:var(--red);margin-bottom:28px;">
+          <div class="card-icon">🤲</div>
+          <h3 data-en="Volunteer With Us" data-fr="Bénévole Avec Nous">Volunteer With Us</h3>
+          <p data-en="We are always looking for passionate volunteers to help run programs, coach teams, and support our community events." data-fr="Nous cherchons toujours des bénévoles passionnés pour aider à gérer des programmes, entraîner des équipes et soutenir nos événements communautaires.">We are always looking for passionate volunteers to help run programs, coach teams, and support our community events.</p>
+        </div>
+        <div class="card" style="border-top-color:var(--gold);">
+          <div class="card-icon">🏟️</div>
+          <h3 data-en="Looking to Try Out for a Team?" data-fr="Vous Voulez Essayer une Équipe?">Looking to Try Out for a Team?</h3>
+          <p data-en="Visit our dedicated tryout registration page to sign up for the Harambe Soccer or Basketball Team, launching Summer 2027." data-fr="Visitez notre page d'inscription aux tryouts pour vous inscrire à l'Équipe de Soccer ou Basketball Harambe, lancée à l'été 2027.">Visit our dedicated tryout registration page to sign up for the Harambe Soccer or Basketball Team, launching Summer 2027.</p>
+          <a href="tryouts.html" class="prog-link" data-en="Go to Tryout Registration →" data-fr="Aller à l'Inscription aux Tryouts →">Go to Tryout Registration →</a>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="form-wrap" style="box-shadow:none;padding:0;max-width:none;">
+        <h2 style="text-align:left;font-size:22px;" data-en="Send Us a Message" data-fr="Envoyez-Nous un Message">Send Us a Message</h2>
+        <p class="form-sub" style="text-align:left;" data-en="Fill out the form and our team will respond within 2–3 business days." data-fr="Remplissez le formulaire et notre équipe répondra dans les 2 à 3 jours ouvrables.">Fill out the form and our team will respond within 2–3 business days.</p>
+        <form id="contact-form" onsubmit="submitContact(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label data-en="First Name *" data-fr="Prénom *">First Name *</label>
+              <input type="text" required data-en="First name" data-fr="Prénom" placeholder="First name" />
+            </div>
+            <div class="form-group">
+              <label data-en="Last Name *" data-fr="Nom de Famille *">Last Name *</label>
+              <input type="text" required data-en="Last name" data-fr="Nom de famille" placeholder="Last name" />
+            </div>
+            <div class="form-group full">
+              <label data-en="Email Address *" data-fr="Adresse Courriel *">Email Address *</label>
+              <input type="email" required data-en="your@email.com" data-fr="votre@courriel.ca" placeholder="your@email.com" />
+            </div>
+            <div class="form-group full">
+              <label data-en="Subject" data-fr="Sujet">Subject</label>
+              <select>
+                <option data-en="General Inquiry" data-fr="Renseignement Général">General Inquiry</option>
+                <option data-en="Partnership / Sponsorship" data-fr="Partenariat / Commandite">Partnership / Sponsorship</option>
+                <option data-en="Volunteering" data-fr="Bénévolat">Volunteering</option>
+                <option data-en="Programs Information" data-fr="Information sur les Programmes">Programs Information</option>
+                <option data-en="Youth Teams / Tryouts" data-fr="Équipes Jeunes / Tryouts">Youth Teams / Tryouts</option>
+                <option data-en="Media / Press" data-fr="Médias / Presse">Media / Press</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label data-en="Message *" data-fr="Message *">Message *</label>
+              <textarea required style="min-height:130px;" data-en="Your message..." data-fr="Votre message..." placeholder="Your message..."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="form-submit" data-en="Send Message" data-fr="Envoyer le Message">Send Message</button>
+          <div class="success-msg" id="contact-success" data-en="✅ Message sent! We'll get back to you as soon as possible." data-fr="✅ Message envoyé! Nous vous répondrons dès que possible.">✅ Message sent! We'll get back to you as soon as possible.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand-name" data-en="Youth Sports Network NB" data-fr="Réseau Sportif pour les Jeunes NB">Youth Sports Network NB</div>
+      <div class="brand-fr" data-en="Réseau Sportif pour les Jeunes NB" data-fr="Youth Sports Network NB">Réseau Sportif pour les Jeunes NB</div>
+      <p data-en="Building stronger futures for young people across New Brunswick through sport, community, and development." data-fr="Bâtir un avenir meilleur pour les jeunes du Nouveau-Brunswick grâce au sport, à la communauté et au développement.">Building stronger futures for young people across New Brunswick through sport, community, and development.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Programs" data-fr="Programmes">Programs</h4>
+      <ul>
+        <li><a href="teams.html" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a></li>
+        <li><a href="programs.html" data-en="Kids in Motion" data-fr="Enfants en Mouvement">Kids in Motion</a></li>
+        <li><a href="programs.html" data-en="Beacon Youth" data-fr="Jeunesse Beacon">Beacon Youth</a></li>
+        <li><a href="tryouts.html" data-en="Register for Tryouts" data-fr="Inscription aux Tryouts">Register for Tryouts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Organization" data-fr="Organisation">Organization</h4>
+      <ul>
+        <li><a href="about.html" data-en="About Us" data-fr="À Propos">About Us</a></li>
+        <li><a href="community.html" data-en="Community" data-fr="Communauté">Community</a></li>
+        <li><a href="contact.html" data-en="Contact" data-fr="Contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Get Involved" data-fr="Impliquez-Vous">Get Involved</h4>
+      <ul>
+        <li><a href="tryouts.html" data-en="Tryout Registration" data-fr="Inscription Tryouts">Tryout Registration</a></li>
+        <li><a href="contact.html" data-en="Volunteer" data-fr="Bénévole">Volunteer</a></li>
+        <li><a href="contact.html" data-en="Sponsor Us" data-fr="Commanditez-Nous">Sponsor Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Youth Sports Network NB | Réseau Sportif pour les Jeunes NB — <span data-en="Non-Profit Organization, New Brunswick, Canada" data-fr="Organisme Sans But Lucratif, Nouveau-Brunswick, Canada">Non-Profit Organization, New Brunswick, Canada</span></p>
+  </div>
+</footer>
+
+<script src="lang.js"></script>
+<script>
+  function submitContact(e) {
+    e.preventDefault();
+    const msg = document.getElementById('contact-success');
+    msg.style.display = 'block';
+    e.target.reset();
+  }
+</script>
+</body>
+</html>
