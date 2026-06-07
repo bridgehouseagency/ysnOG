@@ -237,14 +237,6 @@ textarea { resize: vertical; min-height: 90px; }
 }
 .sponsor-placeholder:hover { border-color: var(--gold); }
 
-.sponsors-marquee { overflow: hidden; position: relative; width: 100%; -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
-.sponsors-track { display: flex; align-items: center; gap: 32px; width: max-content; animation: sponsors-scroll 28s linear infinite; }
-.sponsors-marquee:hover .sponsors-track { animation-play-state: paused; }
-@keyframes sponsors-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
 /* ─── Values Grid ───────────────────────────────────────────── */
 .values-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 20px; }
 .value-card { background: var(--white); border-radius: 12px; padding: 28px 20px; text-align: center; box-shadow: 0 4px 16px rgba(0,0,0,0.07); border-bottom: 3px solid var(--gold); }
