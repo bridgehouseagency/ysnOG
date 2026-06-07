@@ -137,7 +137,20 @@
     <div class="teams-grid">
       <div class="team-card">
         <div class="team-header soccer">
-          <div class="sport-icon">⚽</div>
+          <div class="sport-icon">
+            <svg width="56" height="56" viewBox="0 0 64 64">
+              <defs>
+                <clipPath id="ball-clip"><circle cx="32" cy="32" r="30"/></clipPath>
+              </defs>
+              <circle cx="32" cy="32" r="30" fill="#ffffff"/>
+              <g clip-path="url(#ball-clip)">
+                <path d="M2 30 C18 18 30 38 50 22 C58 16 64 24 64 24 V64 H0 Z" fill="#7a1b2a"/>
+                <path d="M-4 46 C16 34 28 56 52 42 C62 36 68 46 68 46 V70 H-4 Z" fill="#1a6b3a"/>
+                <path d="M30 -4 C42 14 18 30 38 50 C46 58 40 68 40 68 H10 V-4 Z" fill="#1a4d8f"/>
+              </g>
+              <circle cx="32" cy="32" r="30" fill="none" stroke="#1a2d5a" stroke-width="1.6"/>
+            </svg>
+          </div>
           <h3 data-en="Harambe Soccer Team" data-fr="Équipe de Soccer Harambe">Harambe Soccer Team</h3>
           <div class="launch" data-en="Launching Summer 2027" data-fr="Lancement Été 2027">Launching Summer 2027</div>
         </div>

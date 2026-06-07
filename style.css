@@ -190,7 +190,7 @@ nav a:hover, nav a.active { color: var(--white); background: rgba(255,255,255,0.
 .team-header { padding: 40px 32px; color: var(--white); text-align: center; }
 .team-header.soccer { background: linear-gradient(135deg,var(--navy),#2a4a8a); }
 .team-header.basketball { background: linear-gradient(135deg,var(--red),#a0293a); }
-.team-header .sport-icon { font-size: 56px; margin-bottom: 14px; }
+.team-header .sport-icon { font-size: 56px; margin-bottom: 14px; display: flex; justify-content: center; }
 .team-header h3 { font-size: 22px; font-weight: 800; }
 .team-header .launch { background: var(--gold); color: var(--navy); font-size: 12px; font-weight: 700; padding: 4px 14px; border-radius: 20px; margin-top: 10px; display: inline-block; }
 .team-body { padding: 28px 32px; background: var(--white); }
