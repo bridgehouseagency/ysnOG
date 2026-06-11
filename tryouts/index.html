@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register for Tryouts — Youth Sports Network NB</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .tryout-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d1f45 50%, #1a3a6b 100%);
+      color: var(--white); padding: 80px 24px 60px; text-align: center; position: relative; overflow: hidden;
+    }
+    .tryout-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 30% 50%, rgba(184,149,42,0.15) 0%, transparent 60%);
+    }
+    .tryout-hero-content { position: relative; }
+    .tryout-hero h1 { font-size: clamp(2rem,4vw,3rem); font-weight: 800; margin-bottom: 14px; }
+    .tryout-hero p { font-size: 18px; opacity: .85; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+    .team-select-row { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 40px 0 32px; }
+    .team-pill {
+      padding: 12px 28px; border-radius: 40px; border: 2px solid var(--border);
+      font-size: 15px; font-weight: 700; cursor: pointer; transition: all .2s;
+      background: var(--white); color: var(--gray);
+    }
+    .team-pill.selected-soccer { background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .team-pill.selected-basketball { background: var(--red); color: var(--white); border-color: var(--red); }
+    .team-pill.selected-both { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+    .team-pill:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .required-note { font-size: 13px; color: var(--gray); text-align: center; margin-bottom: 24px; }
+    .form-section-title {
+      font-size: 14px; font-weight: 800; color: var(--navy); letter-spacing: 1px;
+      text-transform: uppercase; padding: 20px 0 12px;
+      border-top: 2px solid var(--light); margin-top: 12px; grid-column: 1 / -1;
+    }
+    .form-section-title:first-child { border-top: none; padding-top: 0; }
+    .consent-box { display: flex; gap: 12px; align-items: flex-start; grid-column: 1 / -1; }
+    .consent-box input[type="checkbox"] { width: auto; margin-top: 3px; accent-color: var(--navy); }
+    .consent-box label { font-size: 14px; color: var(--gray); font-weight: 400; line-height: 1.6; }
+    .success-page { display: none; text-align: center; padding: 60px 24px; }
+    .success-page .check { font-size: 72px; margin-bottom: 20px; }
+    .success-page h2 { color: var(--navy); font-size: 28px; font-weight: 800; margin-bottom: 12px; }
+    .success-page p { color: var(--gray); font-size: 16px; margin-bottom: 28px; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo-wrap" href="/">
+      <img class="logo-svg" src="/Youth Sports NB-05.png" alt="Youth Sports Network NB" />
+      <div class="logo-text">
+        <div class="en-name" data-en="YOUTH SPORTS NETWORK NB" data-fr="RÉSEAU SPORTIF JEUNES NB">YOUTH SPORTS NETWORK NB</div>
+        <div class="fr-name" data-en="Réseau Sportif pour les Jeunes NB" data-fr="Youth Sports Network NB">Réseau Sportif pour les Jeunes NB</div>
+      </div>
+    </a>
+    <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    <nav id="main-nav">
+      <a href="/" data-en="Home" data-fr="Accueil">Home</a>
+      <a href="/about/" data-en="About" data-fr="À propos">About</a>
+      <a href="/programs/" data-en="Programs" data-fr="Programmes">Programs</a>
+      <a href="/teams/" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a>
+      <a href="/community/" data-en="Community" data-fr="Communauté">Community</a>
+      <a href="/contact/" data-en="Contact" data-fr="Contact">Contact</a>
+      <button class="lang-btn" onclick="toggleLang()" id="lang-toggle">FR</button>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="tryout-hero">
+  <div class="tryout-hero-content">
+    <div class="hero-badge" data-en="Summer 2027 Launch" data-fr="Lancement Été 2027">Summer 2027 Launch</div>
+    <h1 data-en="Register for Tryouts" data-fr="S'inscrire aux Tryouts">Register for Tryouts</h1>
+    <p data-en="Complete the form below to register your child for tryouts with the Harambe Soccer or Basketball Team. We will contact you with tryout details as soon as dates are confirmed." data-fr="Remplissez le formulaire ci-dessous pour inscrire votre enfant aux tryouts de l'Équipe de Soccer ou Basketball Harambe. Nous vous contacterons avec les détails dès que les dates sont confirmées.">Complete the form below to register your child for tryouts with the Harambe Soccer or Basketball Team. We will contact you with tryout details as soon as dates are confirmed.</p>
+  </div>
+</div>
+
+<!-- FORM SECTION -->
+<section class="section" style="padding-top:56px;">
+  <div class="container">
+
+    <!-- Success screen (hidden until submit) -->
+    <div class="success-page" id="success-screen">
+      <div class="check">✅</div>
+      <h2 data-en="Registration Received!" data-fr="Inscription Reçue!">Registration Received!</h2>
+      <p data-en="Thank you for registering for tryouts with Youth Sports Network NB. We've received your information and will be in touch as soon as tryout dates and locations are confirmed for Summer 2027." data-fr="Merci de vous être inscrit aux tryouts du Réseau Sportif pour les Jeunes NB. Nous avons reçu vos informations et vous contacterons dès que les dates et lieux des tryouts seront confirmés pour l'Été 2027.">Thank you for registering for tryouts with Youth Sports Network NB. We've received your information and will be in touch as soon as tryout dates and locations are confirmed for Summer 2027.</p>
+      <a href="/" class="btn-primary" data-en="Return to Home" data-fr="Retour à l'Accueil">Return to Home</a>
+    </div>
+
+    <!-- Registration Form -->
+    <div id="form-container">
+      <!-- Team selector pills -->
+      <div class="section-title" style="margin-bottom:0;">
+        <span class="tag" data-en="Step 1 — Choose Your Team" data-fr="Étape 1 — Choisissez Votre Équipe">Step 1 — Choose Your Team</span>
+        <h2 data-en="Which team are you trying out for?" data-fr="Pour quelle équipe vous inscrivez-vous?">Which team are you trying out for?</h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="team-select-row">
+        <button type="button" class="team-pill" id="pill-soccer" onclick="selectTeam('soccer')" data-en="⚽ Harambe Soccer" data-fr="⚽ Soccer Harambe">⚽ Harambe Soccer</button>
+        <button type="button" class="team-pill" id="pill-basketball" onclick="selectTeam('basketball')" data-en="🏀 Harambe Basketball" data-fr="🏀 Basketball Harambe">🏀 Harambe Basketball</button>
+        <button type="button" class="team-pill" id="pill-both" onclick="selectTeam('both')" data-en="⚽🏀 Both Teams" data-fr="⚽🏀 Les Deux Équipes">⚽🏀 Both Teams</button>
+      </div>
+
+      <div class="form-wrap" style="margin-top:0;">
+        <div class="section-title" style="margin-bottom:8px;">
+          <span class="tag" data-en="Step 2 — Complete the Form" data-fr="Étape 2 — Remplissez le Formulaire">Step 2 — Complete the Form</span>
+        </div>
+        <p class="required-note" data-en="Fields marked * are required." data-fr="Les champs marqués * sont obligatoires.">Fields marked * are required.</p>
+
+        <form id="tryout-form" onsubmit="submitTryout(event)">
+          <input type="hidden" id="selected-team" name="team" value="" />
+          <div class="form-grid">
+
+            <!-- Youth Info -->
+            <div class="form-section-title" data-en="Youth Information" data-fr="Informations sur le Jeune">Youth Information</div>
+
+            <div class="form-group">
+              <label data-en="First Name *" data-fr="Prénom *">First Name *</label>
+              <input type="text" id="f-first" required data-en="Youth's first name" data-fr="Prénom du jeune" placeholder="Youth's first name" />
+            </div>
+            <div class="form-group">
+              <label data-en="Last Name *" data-fr="Nom de Famille *">Last Name *</label>
+              <input type="text" id="f-last" required data-en="Youth's last name" data-fr="Nom de famille du jeune" placeholder="Youth's last name" />
+            </div>
+            <div class="form-group">
+              <label data-en="Date of Birth *" data-fr="Date de Naissance *">Date of Birth *</label>
+              <input type="date" id="f-dob" required />
+            </div>
+            <div class="form-group">
+              <label data-en="Gender" data-fr="Genre">Gender</label>
+              <select id="f-gender">
+                <option value="" data-en="Prefer not to say" data-fr="Préfère ne pas répondre">Prefer not to say</option>
+                <option value="male" data-en="Male" data-fr="Masculin">Male</option>
+                <option value="female" data-en="Female" data-fr="Féminin">Female</option>
+                <option value="other" data-en="Non-binary / Other" data-fr="Non-binaire / Autre">Non-binary / Other</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label data-en="City / Community *" data-fr="Ville / Communauté *">City / Community *</label>
+              <input type="text" id="f-city" required data-en="e.g. Moncton, Fredericton, Saint John..." data-fr="ex. Moncton, Fredericton, Saint-Jean..." placeholder="e.g. Moncton, Fredericton, Saint John..." />
+            </div>
+            <div class="form-group full">
+              <label data-en="School (optional)" data-fr="École (optionnel)">School (optional)</label>
+              <input type="text" id="f-school" data-en="Name of school" data-fr="Nom de l'école" placeholder="Name of school" />
+            </div>
+
+            <!-- Sport Experience -->
+            <div class="form-section-title" data-en="Sport &amp; Experience" data-fr="Sport &amp; Expérience">Sport &amp; Experience</div>
+
+            <div class="form-group full">
+              <label data-en="Team Selected *" data-fr="Équipe Sélectionnée *">Team Selected *</label>
+              <select id="f-team-select" required onchange="syncPillFromSelect(this.value)">
+                <option value="" data-en="— Choose a team —" data-fr="— Choisir une équipe —">— Choose a team —</option>
+                <option value="soccer" data-en="⚽ Harambe Soccer Team" data-fr="⚽ Équipe de Soccer Harambe">⚽ Harambe Soccer Team</option>
+                <option value="basketball" data-en="🏀 Harambe Basketball Team" data-fr="🏀 Équipe de Basketball Harambe">🏀 Harambe Basketball Team</option>
+                <option value="both" data-en="⚽🏀 Both Teams" data-fr="⚽🏀 Les Deux Équipes">⚽🏀 Both Teams</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label data-en="Years of Experience" data-fr="Années d'Expérience">Years of Experience</label>
+              <select id="f-exp">
+                <option value="none" data-en="No experience (beginner)" data-fr="Aucune expérience (débutant)">No experience (beginner)</option>
+                <option value="1-2" data-en="1–2 years" data-fr="1–2 ans">1–2 years</option>
+                <option value="3-5" data-en="3–5 years" data-fr="3–5 ans">3–5 years</option>
+                <option value="5+" data-en="5+ years" data-fr="5+ ans">5+ years</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label data-en="Preferred Position (optional)" data-fr="Position Préférée (optionnel)">Preferred Position (optional)</label>
+              <input type="text" id="f-position" data-en="e.g. Forward, Guard, Goalkeeper..." data-fr="ex. Attaquant, Gardien, Meneur..." placeholder="e.g. Forward, Guard, Goalkeeper..." />
+            </div>
+            <div class="form-group full">
+              <label data-en="Tell us about your child's athletic background (optional)" data-fr="Parlez-nous du parcours athlétique de votre enfant (optionnel)">Tell us about your child's athletic background (optional)</label>
+              <textarea id="f-bio" data-en="Previous teams, sports, achievements..." data-fr="Équipes précédentes, sports, réalisations..." placeholder="Previous teams, sports, achievements..."></textarea>
+            </div>
+
+            <!-- Parent / Guardian -->
+            <div class="form-section-title" data-en="Parent / Guardian Information" data-fr="Informations du Parent / Tuteur">Parent / Guardian Information</div>
+
+            <div class="form-group">
+              <label data-en="Parent / Guardian Name *" data-fr="Nom du Parent / Tuteur *">Parent / Guardian Name *</label>
+              <input type="text" id="f-parent" required data-en="Full name" data-fr="Nom complet" placeholder="Full name" />
+            </div>
+            <div class="form-group">
+              <label data-en="Relationship to Youth *" data-fr="Lien avec le Jeune *">Relationship to Youth *</label>
+              <select id="f-relation" required>
+                <option value="parent" data-en="Parent" data-fr="Parent">Parent</option>
+                <option value="guardian" data-en="Legal Guardian" data-fr="Tuteur Légal">Legal Guardian</option>
+                <option value="other" data-en="Other" data-fr="Autre">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label data-en="Phone Number *" data-fr="Numéro de Téléphone *">Phone Number *</label>
+              <input type="tel" id="f-phone" required data-en="(506) 000-0000" data-fr="(506) 000-0000" placeholder="(506) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label data-en="Email Address *" data-fr="Adresse Courriel *">Email Address *</label>
+              <input type="email" id="f-email" required data-en="your@email.com" data-fr="votre@courriel.ca" placeholder="your@email.com" />
+            </div>
+            <div class="form-group full">
+              <label data-en="Alternative Phone (optional)" data-fr="Téléphone Alternatif (optionnel)">Alternative Phone (optional)</label>
+              <input type="tel" id="f-phone2" data-en="(506) 000-0000" data-fr="(506) 000-0000" placeholder="(506) 000-0000" />
+            </div>
+
+            <!-- Inclusion -->
+            <div class="form-section-title" data-en="Inclusion &amp; Accessibility" data-fr="Inclusion &amp; Accessibilité">Inclusion &amp; Accessibility</div>
+
+            <div class="form-group full">
+              <label data-en="Is your child a newcomer or immigrant to Canada? (optional)" data-fr="Votre enfant est-il un nouvel arrivant ou immigrant au Canada? (optionnel)">Is your child a newcomer or immigrant to Canada? (optional)</label>
+              <select id="f-newcomer">
+                <option value="" data-en="Prefer not to say" data-fr="Préfère ne pas répondre">Prefer not to say</option>
+                <option value="yes" data-en="Yes" data-fr="Oui">Yes</option>
+                <option value="no" data-en="No" data-fr="Non">No</option>
+              </select>
+            </div>
+            <div class="form-group full">
+              <label data-en="Does your child have any medical conditions or accessibility needs we should know about? (optional)" data-fr="Votre enfant a-t-il des conditions médicales ou besoins d'accessibilité que nous devrions connaître? (optionnel)">Does your child have any medical conditions or accessibility needs we should know about? (optional)</label>
+              <textarea id="f-medical" data-en="Please describe any relevant information..." data-fr="Veuillez décrire toute information pertinente..." placeholder="Please describe any relevant information..."></textarea>
+            </div>
+            <div class="form-group full">
+              <label data-en="Preferred language of communication" data-fr="Langue de communication préférée">Preferred language of communication</label>
+              <select id="f-lang">
+                <option value="en" data-en="English" data-fr="Anglais">English</option>
+                <option value="fr" data-en="French" data-fr="Français">French</option>
+                <option value="both" data-en="Both / Either" data-fr="Les deux">Both / Either</option>
+              </select>
+            </div>
+
+            <!-- Consent -->
+            <div class="form-section-title" data-en="Consent" data-fr="Consentement">Consent</div>
+
+            <div class="consent-box">
+              <input type="checkbox" id="consent1" required />
+              <label for="consent1" data-en="I confirm that the information provided is accurate and that I am the parent or legal guardian of the youth being registered. *" data-fr="Je confirme que les informations fournies sont exactes et que je suis le parent ou tuteur légal du jeune inscrit. *">I confirm that the information provided is accurate and that I am the parent or legal guardian of the youth being registered. *</label>
+            </div>
+            <div class="consent-box">
+              <input type="checkbox" id="consent2" required />
+              <label for="consent2" data-en="I consent to Youth Sports Network NB contacting me regarding tryout scheduling and program information. *" data-fr="Je consens à ce que le Réseau Sportif pour les Jeunes NB me contacte concernant la planification des tryouts et les informations sur les programmes. *">I consent to Youth Sports Network NB contacting me regarding tryout scheduling and program information. *</label>
+            </div>
+            <div class="consent-box">
+              <input type="checkbox" id="consent3" />
+              <label for="consent3" data-en="I would like to receive updates and news from Youth Sports Network NB (optional)." data-fr="Je souhaite recevoir des mises à jour et nouvelles du Réseau Sportif pour les Jeunes NB (optionnel).">I would like to receive updates and news from Youth Sports Network NB (optional).</label>
+            </div>
+
+          </div>
+
+          <button type="submit" class="form-submit" style="margin-top:24px;" data-en="Submit Tryout Registration" data-fr="Soumettre l'Inscription aux Tryouts">Submit Tryout Registration</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand-name" data-en="Youth Sports Network NB" data-fr="Réseau Sportif pour les Jeunes NB">Youth Sports Network NB</div>
+      <div class="brand-fr" data-en="Réseau Sportif pour les Jeunes NB" data-fr="Youth Sports Network NB">Réseau Sportif pour les Jeunes NB</div>
+      <p data-en="Building stronger futures for young people across New Brunswick through sport, community, and development." data-fr="Bâtir un avenir meilleur pour les jeunes du Nouveau-Brunswick grâce au sport, à la communauté et au développement.">Building stronger futures for young people across New Brunswick through sport, community, and development.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Programs" data-fr="Programmes">Programs</h4>
+      <ul>
+        <li><a href="/teams/" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a></li>
+        <li><a href="/programs/" data-en="Kids in Motion" data-fr="Enfants en Mouvement">Kids in Motion</a></li>
+        <li><a href="/programs/" data-en="Compass Youth" data-fr="Jeunesse Compass">Compass Youth</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Organization" data-fr="Organisation">Organization</h4>
+      <ul>
+        <li><a href="/about/" data-en="About Us" data-fr="À Propos">About Us</a></li>
+        <li><a href="/community/" data-en="Community" data-fr="Communauté">Community</a></li>
+        <li><a href="/contact/" data-en="Contact" data-fr="Contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Get Involved" data-fr="Impliquez-Vous">Get Involved</h4>
+      <ul>
+        <li><a href="/contact/" data-en="Volunteer" data-fr="Bénévole">Volunteer</a></li>
+        <li><a href="/contact/" data-en="Sponsor Us" data-fr="Commanditez-Nous">Sponsor Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Youth Sports Network NB | Réseau Sportif pour les Jeunes NB — <span data-en="Designed by Bridgehouse Creatives" data-fr="Conçu par Bridgehouse Creatives">Designed by Bridgehouse Creatives</span></p>
+  </div>
+</footer>
+
+<script src="/lang.js"></script>
+<script>
+  /* Pre-select team from URL param ?team=soccer|basketball */
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const t = params.get('team');
+    if (t) selectTeam(t);
+  })();
+
+  function selectTeam(team) {
+    ['soccer','basketball','both'].forEach(t => {
+      const pill = document.getElementById('pill-' + t);
+      pill.classList.remove('selected-soccer','selected-basketball','selected-both');
+    });
+    document.getElementById('pill-' + team).classList.add('selected-' + team);
+    document.getElementById('selected-team').value = team;
+    document.getElementById('f-team-select').value = team;
+  }
+
+  function syncPillFromSelect(val) {
+    if (val) selectTeam(val);
+  }
+
+  function submitTryout(e) {
+    e.preventDefault();
+    const team = document.getElementById('selected-team').value || document.getElementById('f-team-select').value;
+    if (!team) {
+      alert('Please select a team before submitting.');
+      return;
+    }
+    document.getElementById('form-container').style.display = 'none';
+    const s = document.getElementById('success-screen');
+    s.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

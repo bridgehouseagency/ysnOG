@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Programs — Youth Sports Network NB</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a class="logo-wrap" href="/">
+      <img class="logo-svg" src="/Youth Sports NB-05.png" alt="Youth Sports Network NB" />
+      <div class="logo-text">
+        <div class="en-name" data-en="YOUTH SPORTS NETWORK NB" data-fr="RÉSEAU SPORTIF JEUNES NB">YOUTH SPORTS NETWORK NB</div>
+        <div class="fr-name" data-en="Réseau Sportif pour les Jeunes NB" data-fr="Youth Sports Network NB">Réseau Sportif pour les Jeunes NB</div>
+      </div>
+    </a>
+    <div class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
+    <nav id="main-nav">
+      <a href="/" data-en="Home" data-fr="Accueil">Home</a>
+      <a href="/about/" data-en="About" data-fr="À propos">About</a>
+      <a href="/programs/" class="active" data-en="Programs" data-fr="Programmes">Programs</a>
+      <a href="/teams/" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a>
+      <a href="/community/" data-en="Community" data-fr="Communauté">Community</a>
+      <a href="/contact/" data-en="Contact" data-fr="Contact">Contact</a>
+      <button class="lang-btn" onclick="toggleLang()" id="lang-toggle">FR</button>
+    </nav>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <h1 data-en="Our Programs" data-fr="Nos Programmes">Our Programs</h1>
+  <p data-en="Three pillars of impact — sport, community, and development — working together to transform young lives across New Brunswick." data-fr="Trois piliers d'impact — sport, communauté et développement — travaillant ensemble pour transformer la vie des jeunes au Nouveau-Brunswick.">Three pillars of impact — sport, community, and development — working together to transform young lives across New Brunswick.</p>
+</section>
+
+<!-- KIDS IN MOTION -->
+<section class="section" id="kids-in-motion">
+  <div class="container">
+    <div class="two-col" style="margin-bottom:80px;">
+      <div style="background:linear-gradient(135deg,#8a6e1a,var(--gold));border-radius:16px;padding:56px 40px;color:var(--white);text-align:center;">
+        <svg width="64" height="64" viewBox="0 0 44 44" fill="none" style="margin:0 auto 16px;">
+          <circle cx="22" cy="15" r="10" fill="#ffffff" fill-opacity="0.18" stroke="#ffffff" stroke-width="2.4"/>
+          <path d="M22 25 V40" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M22 31 L14 36 M22 31 L30 36" stroke="#ffffff" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <h2 style="font-size:30px;font-weight:800;margin-bottom:12px;" data-en="Kids in Motion" data-fr="Enfants en Mouvement">Kids in Motion</h2>
+        <p style="opacity:.9;font-size:16px;line-height:1.7;margin-bottom:20px;" data-en="Free activities for youth at parks &amp; playgrounds" data-fr="Activités gratuites pour les jeunes dans les parcs et aires de jeux">Free activities for youth at parks &amp; playgrounds</p>
+        <span style="background:rgba(255,255,255,0.2);padding:6px 18px;border-radius:20px;font-size:13px;font-weight:700;" data-en="100% Free — No Registration Fee" data-fr="100% Gratuit — Aucuns Frais d'Inscription">100% Free — No Registration Fee</span>
+      </div>
+      <div class="text-block">
+        <span class="tag-inline" data-en="Community Program" data-fr="Programme Communautaire">Community Program</span>
+        <h2 data-en="Outdoor Fun — At No Cost" data-fr="Plaisir en Plein Air — Sans Frais">Outdoor Fun — At No Cost</h2>
+        <p data-en="Kids in Motion is our flagship free community program, bringing organized activities directly to parks and playgrounds across New Brunswick. No registration fees. No barriers. Just fun, fitness, and friendship." data-fr="Enfants en Mouvement est notre programme communautaire gratuit phare, apportant des activités organisées directement dans les parcs et aires de jeux du Nouveau-Brunswick. Pas de frais d'inscription. Pas de barrières. Juste du plaisir, du fitness et de l'amitié.">Kids in Motion is our flagship free community program, bringing organized activities directly to parks and playgrounds across New Brunswick. No registration fees. No barriers. Just fun, fitness, and friendship.</p>
+        <p data-en="Activities include organized sports, competitive games, fitness demonstrations, guided nature walks, board games, water games, and seasonal activities — something for everyone." data-fr="Les activités comprennent des sports organisés, des jeux compétitifs, des démonstrations de fitness, des promenades dans la nature, des jeux de société, des jeux aquatiques et des activités saisonnières — quelque chose pour tout le monde.">Activities include organized sports, competitive games, fitness demonstrations, guided nature walks, board games, water games, and seasonal activities — something for everyone.</p>
+      </div>
+    </div>
+
+    <!-- Activity Grid -->
+    <div class="section-title" style="margin-bottom:32px;">
+      <h2 data-en="What We Do at the Parks" data-fr="Ce Que Nous Faisons dans les Parcs">What We Do at the Parks</h2>
+      <div class="divider"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;margin-bottom:60px;">
+      <div class="card" style="text-align:center;padding:28px 16px;">
+        <svg width="40" height="40" viewBox="0 0 44 44" fill="none" style="margin:0 auto 10px;">
+          <circle cx="22" cy="22" r="16" stroke="#1a2d5a" stroke-width="2.4"/>
+          <polygon points="22,13 28,18 26,25 18,25 16,18" stroke="#b8952a" stroke-width="2" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <h4 style="color:var(--navy);font-weight:700;" data-en="Organized Sports" data-fr="Sports Organisés">Organized Sports</h4>
+      </div>
+      <div class="card" style="text-align:center;padding:28px 16px;">
+        <svg width="40" height="40" viewBox="0 0 44 44" fill="none" style="margin:0 auto 10px;">
+          <rect x="8" y="8" width="28" height="28" rx="4" stroke="#7a1b2a" stroke-width="2.4"/>
+          <circle cx="16" cy="16" r="2.2" fill="#b8952a"/>
+          <circle cx="28" cy="16" r="2.2" fill="#b8952a"/>
+          <circle cx="22" cy="22" r="2.2" fill="#b8952a"/>
+          <circle cx="16" cy="28" r="2.2" fill="#b8952a"/>
+          <circle cx="28" cy="28" r="2.2" fill="#b8952a"/>
+        </svg>
+        <h4 style="color:var(--navy);font-weight:700;" data-en="Board Games" data-fr="Jeux de Société">Board Games</h4>
+      </div>
+      <div class="card" style="text-align:center;padding:28px 16px;">
+        <svg width="40" height="40" viewBox="0 0 44 44" fill="none" style="margin:0 auto 10px;">
+          <rect x="6" y="19" width="6" height="6" rx="1.5" fill="#1a2d5a"/>
+          <rect x="32" y="19" width="6" height="6" rx="1.5" fill="#1a2d5a"/>
+          <path d="M12 22 H32" stroke="#b8952a" stroke-width="2.6" stroke-linecap="round"/>
+          <rect x="15" y="16" width="4" height="12" rx="1.5" fill="#7a1b2a"/>
+          <rect x="25" y="16" width="4" height="12" rx="1.5" fill="#7a1b2a"/>
+        </svg>
+        <h4 style="color:var(--navy);font-weight:700;" data-en="Fitness Demos" data-fr="Démos Fitness">Fitness Demos</h4>
+      </div>
+      <div class="card" style="text-align:center;padding:28px 16px;">
+        <svg width="40" height="40" viewBox="0 0 44 44" fill="none" style="margin:0 auto 10px;">
+          <circle cx="24" cy="9" r="3.6" fill="#1a2d5a"/>
+          <path d="M24 13 L20 22 L13 26" stroke="#1a2d5a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M24 13 L27 19 L34 22" stroke="#b8952a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <path d="M20 22 L17 35 M20 22 L25 33" stroke="#1a2d5a" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M6 38 H38" stroke="#7a1b2a" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 4"/>
+        </svg>
+        <h4 style="color:var(--navy);font-weight:700;" data-en="Guided Walks" data-fr="Marches Guidées">Guided Walks</h4>
+      </div>
+      <div class="card" style="text-align:center;padding:28px 16px;">
+        <svg width="40" height="40" viewBox="0 0 44 44" fill="none" style="margin:0 auto 10px;">
+          <path d="M22 6 C28 16 34 22 34 28 C34 35 28.6 39 22 39 C15.4 39 10 35 10 28 C10 22 16 16 22 6 Z" stroke="#1a2d5a" stroke-width="2.4" stroke-linejoin="round" fill="none"/>
+          <path d="M16 28 C16 32 19 34.5 22 34.5" stroke="#b8952a" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+        <h4 style="color:var(--navy);font-weight:700;" data-en="Water Games" data-fr="Jeux Aquatiques">Water Games</h4>
+      </div>
+      <div class="card" style="text-align:center;padding:28px 16px;">
+        <svg width="40" height="40" viewBox="0 0 44 44" fill="none" style="margin:0 auto 10px;">
+          <path d="M14 8 H30 V18 C30 24 26.4 28 22 28 C17.6 28 14 24 14 18 Z" stroke="#b8952a" stroke-width="2.4" stroke-linejoin="round" fill="none"/>
+          <path d="M14 11 H8 V15 C8 19 11 21 14 21 M30 11 H36 V15 C36 19 33 21 30 21" stroke="#b8952a" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M22 28 V34 M16 38 H28 M22 34 C22 34 16 34 16 38 M22 34 C22 34 28 34 28 38" stroke="#1a2d5a" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h4 style="color:var(--navy);font-weight:700;" data-en="Competitions" data-fr="Compétitions">Competitions</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPASS YOUTH -->
+<section class="section section-alt" id="compass">
+  <div class="container">
+    <div class="two-col" style="margin-bottom:80px;">
+      <div style="background:linear-gradient(135deg,#4a1622,var(--red));border-radius:16px;padding:56px 40px;color:var(--white);text-align:center;">
+        <svg width="64" height="64" viewBox="0 0 44 44" fill="none" style="margin:0 auto 16px;">
+          <circle cx="22" cy="22" r="15" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-width="2.4"/>
+          <path d="M22 22 L29 14 L25 24 Z" fill="#ffffff"/>
+          <circle cx="22" cy="22" r="2.4" fill="#ffffff"/>
+        </svg>
+        <h2 style="font-size:30px;font-weight:800;margin-bottom:12px;" data-en="Compass Youth Program" data-fr="Programme Jeunesse Compass">Compass Youth Program</h2>
+        <p style="opacity:.9;font-size:16px;line-height:1.7;margin-bottom:20px;" data-en="Guiding our athletes and community youth toward what comes next" data-fr="Guider nos athlètes et les jeunes de la communauté vers la suite">Guiding our athletes and community youth toward what comes next</p>
+        <span style="background:rgba(255,255,255,0.2);padding:6px 18px;border-radius:20px;font-size:13px;font-weight:700;" data-en="After-School Program" data-fr="Programme Parascolaire">After-School Program</span>
+      </div>
+      <div class="text-block">
+        <span class="tag-inline" data-en="Development Program" data-fr="Programme de Développement">Development Program</span>
+        <h2 data-en="Helping Youth Look Beyond the Game" data-fr="Aider les Jeunes à Voir au-delà du Jeu">Helping Youth Look Beyond the Game</h2>
+        <p data-en="Compass brings our athletes and youth from across the community together — pairing every participant with new connections and a clear path toward life after high school." data-fr="Compass réunit nos athlètes et les jeunes de toute la communauté — en jumelant chaque participant à de nouvelles connexions et à un parcours clair vers la vie après le secondaire.">Compass brings our athletes and youth from across the community together — pairing every participant with new connections and a clear path toward life after high school.</p>
+        <p data-en="Sessions run evenings, weekends, and summer holidays — fitting around school schedules to reach the youth who need it most." data-fr="Les séances ont lieu en soirée, les week-ends et les vacances d'été — s'adaptant aux horaires scolaires pour rejoindre les jeunes qui en ont le plus besoin.">Sessions run evenings, weekends, and summer holidays — fitting around school schedules to reach the youth who need it most.</p>
+      </div>
+    </div>
+
+    <!-- Pillar Grid -->
+    <div class="section-title" style="margin-bottom:32px;">
+      <h2 data-en="How Compass Helps" data-fr="Comment Compass Aide">How Compass Helps</h2>
+      <div class="divider"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;">
+      <div class="card" style="border-top-color:var(--navy);">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <circle cx="14" cy="16" r="5" stroke="#1a2d5a" stroke-width="2.4"/>
+          <circle cx="32" cy="14" r="4.5" stroke="#b8952a" stroke-width="2.4"/>
+          <circle cx="22" cy="32" r="5" stroke="#7a1b2a" stroke-width="2.4"/>
+          <line x1="17.5" y1="19" x2="28.5" y2="17" stroke="#1a2d5a" stroke-width="2" stroke-linecap="round"/>
+          <line x1="16" y1="20.5" x2="20" y2="27.5" stroke="#1a2d5a" stroke-width="2" stroke-linecap="round"/>
+          <line x1="29.5" y1="18" x2="25" y2="28" stroke="#b8952a" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <h3 data-en="Connection &amp; Networking" data-fr="Connexion et Réseautage">Connection &amp; Networking</h3>
+        <p data-en="Youth forums and gatherings connect our athletes with peers from other regions and across Canada — opening minds, building friendships, and broadening their sense of what's possible." data-fr="Des forums et des rassemblements jeunesse mettent nos athlètes en contact avec des pairs d'autres régions et de partout au Canada — ouvrant les esprits, créant des amitiés et élargissant leur vision du possible.">Youth forums and gatherings connect our athletes with peers from other regions and across Canada — opening minds, building friendships, and broadening their sense of what's possible.</p>
+      </div>
+      <div class="card" style="border-top-color:var(--gold);">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <path d="M22 8 L38 15 L22 22 L6 15 Z" stroke="#b8952a" stroke-width="2.4" stroke-linejoin="round"/>
+          <path d="M13 18.5 V27 C13 30 17 33 22 33 C27 33 31 30 31 27 V18.5" stroke="#1a2d5a" stroke-width="2.2" stroke-linejoin="round" fill="none"/>
+          <line x1="38" y1="15" x2="38" y2="25" stroke="#7a1b2a" stroke-width="2.4" stroke-linecap="round"/>
+        </svg>
+        <h3 data-en="College &amp; Career Exploration" data-fr="Exploration Collégiale et de Carrière">College &amp; Career Exploration</h3>
+        <p data-en="Through partnerships with colleges and universities, our youth visit campuses, meet students and faculty, and explore career paths — building a real picture of what comes after high school." data-fr="Grâce à des partenariats avec des collèges et universités, nos jeunes visitent des campus, rencontrent étudiants et professeurs, et explorent des parcours de carrière — pour se faire une idée concrète de la vie après le secondaire.">Through partnerships with colleges and universities, our youth visit campuses, meet students and faculty, and explore career paths — building a real picture of what comes after high school.</p>
+      </div>
+      <div class="card" style="border-top-color:var(--red);">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none">
+          <rect x="9" y="8" width="26" height="20" rx="2" stroke="#7a1b2a" stroke-width="2.4"/>
+          <circle cx="22" cy="18" r="5" stroke="#1a2d5a" stroke-width="2"/>
+          <line x1="16" y1="34" x2="28" y2="34" stroke="#b8952a" stroke-width="2.4" stroke-linecap="round"/>
+          <line x1="22" y1="28" x2="22" y2="34" stroke="#b8952a" stroke-width="2.4"/>
+        </svg>
+        <h3 data-en="Tech Access &amp; Innovation" data-fr="Accès à la Technologie et Innovation">Tech Access &amp; Innovation</h3>
+        <p data-en="In partnership with local tech hubs, youth get early exposure to technology — attending conferences, seminars, and hands-on workshops that open doors to future careers in tech." data-fr="En partenariat avec des centres technologiques locaux, les jeunes ont un accès précoce à la technologie — en participant à des conférences, séminaires et ateliers pratiques qui ouvrent la porte à des carrières futures en technologie.">In partnership with local tech hubs, youth get early exposure to technology — attending conferences, seminars, and hands-on workshops that open doors to future careers in tech.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <h2 data-en="Ready to Join a Program?" data-fr="Prêt à Rejoindre un Programme?">Ready to Join a Program?</h2>
+    <p data-en="Contact us to learn more about program schedules, locations, and how to get involved." data-fr="Contactez-nous pour en savoir plus sur les horaires, les lieux et comment vous impliquer.">Contact us to learn more about program schedules, locations, and how to get involved.</p>
+    <a href="/contact/" class="btn-dark" data-en="Contact Us" data-fr="Contactez-Nous">Contact Us</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="brand-name" data-en="Youth Sports Network NB" data-fr="Réseau Sportif pour les Jeunes NB">Youth Sports Network NB</div>
+      <div class="brand-fr" data-en="Réseau Sportif pour les Jeunes NB" data-fr="Youth Sports Network NB">Réseau Sportif pour les Jeunes NB</div>
+      <p data-en="Building stronger futures for young people across New Brunswick through sport, community, and development." data-fr="Bâtir un avenir meilleur pour les jeunes du Nouveau-Brunswick grâce au sport, à la communauté et au développement.">Building stronger futures for young people across New Brunswick through sport, community, and development.</p>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Programs" data-fr="Programmes">Programs</h4>
+      <ul>
+        <li><a href="/teams/" data-en="Youth Teams" data-fr="Équipes Jeunes">Youth Teams</a></li>
+        <li><a href="/programs/" data-en="Kids in Motion" data-fr="Enfants en Mouvement">Kids in Motion</a></li>
+        <li><a href="/programs/" data-en="Compass Youth" data-fr="Jeunesse Compass">Compass Youth</a></li>
+        <li><a href="/tryouts/" data-en="Register for Tryouts" data-fr="Inscription aux Tryouts">Register for Tryouts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Organization" data-fr="Organisation">Organization</h4>
+      <ul>
+        <li><a href="/about/" data-en="About Us" data-fr="À Propos">About Us</a></li>
+        <li><a href="/community/" data-en="Community" data-fr="Communauté">Community</a></li>
+        <li><a href="/contact/" data-en="Contact" data-fr="Contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4 data-en="Get Involved" data-fr="Impliquez-Vous">Get Involved</h4>
+      <ul>
+        <li><a href="/tryouts/" data-en="Tryout Registration" data-fr="Inscription Tryouts">Tryout Registration</a></li>
+        <li><a href="/contact/" data-en="Volunteer" data-fr="Bénévole">Volunteer</a></li>
+        <li><a href="/contact/" data-en="Sponsor Us" data-fr="Commanditez-Nous">Sponsor Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Youth Sports Network NB | Réseau Sportif pour les Jeunes NB — <span data-en="Designed by Bridgehouse Creatives" data-fr="Conçu par Bridgehouse Creatives">Designed by Bridgehouse Creatives</span></p>
+  </div>
+</footer>
+<script src="/lang.js"></script>
+</body>
+</html>
